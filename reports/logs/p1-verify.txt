@@ -1,0 +1,17 @@
+==================================================
+CareCast Verification Suite
+Python interpreter: /Users/thanujaa/Desktop/CareCast/.venv/bin/python
+==================================================
+--> Running check: Pytest Test Suite (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -m pytest -q)
+[PASS] Pytest Test Suite
+--> Running check: Package Import Smoke Test (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -c import carecast)
+[PASS] Package Import Smoke Test
+--> Running check: Dependency Vulnerability Audit (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -m pip_audit)
+[PASS] Dependency Vulnerability Audit
+
+---------------- Summary ----------------
+[PASS] Pytest Test Suite
+[PASS] Package Import Smoke Test
+[PASS] Dependency Vulnerability Audit
+-----------------------------------------
+ALL VERIFICATION CHECKS PASSED.

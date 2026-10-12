@@ -1,0 +1,33 @@
+# Environments and local configs
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Raw data and database artifacts (per TRD §8, §13)
+data/raw/*
+!data/raw/.gitkeep
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS and IDE files
+.DS_Store
+.idea/
+.vscode/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/

@@ -1,0 +1,51 @@
+# config/dataset_mapping.toml
+# Verified column mapping for CDC NHSN dataset ua7e-t2fy
+# Column names confirmed from real CSV header row (Phase 2 inspection).
+# All names MUST be verified against the actual file before use.
+# National jurisdiction value in this dataset is "USA".
+
+[source]
+dataset_id   = "ua7e-t2fy"
+publisher    = "CDC / NHSN"
+name         = "Weekly Hospital Respiratory Data (HRD) Metrics by Jurisdiction"
+url          = "https://data.cdc.gov/api/views/ua7e-t2fy/rows.csv?accessType=DOWNLOAD"
+licence_note = "Public domain (CDC). No restrictions on use. Attribution requested."
+
+# National-level jurisdiction value as it appears in the CSV.
+[source.jurisdiction]
+national_value = "USA"     # ✅ VERIFIED from CSV inspection
+jurisdiction_column = "Geographic aggregation"
+
+[columns]
+# ✅ VERIFIED from real CSV header (Phase 2, 2026-10-12)
+date_column        = "Week Ending Date"
+
+[columns.diseases.flu]
+count_column       = "Total Influenza Admissions"
+rate_column        = "Total number of Influenza Admissions per 100,000 population"
+reporting_hospitals_column = "Number Hospitals Reporting Influenza Admissions"
+pct_reporting_column       = "Percent Hospitals Reporting Influenza Admissions"
+# No admission_level column in DS-2; use DS-1 (vdzy-6i9v) if level is needed.
+level_column       = ""
+
+[columns.diseases.covid19]
+count_column       = "Total COVID-19 Admissions"
+rate_column        = "Total number of COVID-19 Admissions per 100,000 population"
+reporting_hospitals_column = "Number Hospitals Reporting COVID-19 Admissions"
+pct_reporting_column       = "Percent Hospitals Reporting COVID-19 Admissions"
+level_column       = ""
+
+[columns.diseases.rsv]
+count_column       = "Total RSV Admissions"
+rate_column        = "Total number of RSV Admissions per 100,000 population"
+reporting_hospitals_column = "Number Hospitals Reporting RSV Admissions"
+pct_reporting_column       = "Percent Hospitals Reporting RSV Admissions"
+level_column       = ""
+
+[notes]
+# RSV reporting was voluntary until 2023-10-07 (USA first non-null date).
+# RSV became nationally mandatory under CMS rules effective 1 Nov 2024.
+# Flu reporting zeros (2020-08-08 to ~2020-10-10): voluntary period, not true zeros.
+# Mandatory flu/COVID-19 reporting under HHS: began ~Aug 2020 for COVID-19.
+# All column names above are VERIFIED against the downloaded CSV.
+# See reports/phase-2.md for full Data Decision Record.
