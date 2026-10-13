@@ -1,0 +1,172 @@
+/* Base styles and reset for CareCast */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--lh-body);
+  color: var(--text-strong);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Accessibility: Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 16px;
+  background: var(--primary-600);
+  color: var(--text-on-primary);
+  padding: var(--sp-2) var(--sp-4);
+  z-index: 1000;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: var(--fw-semibold);
+  transition: top var(--t-fast) var(--ease);
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Typography elements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-strong);
+  line-height: var(--lh-tight);
+}
+
+h1 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+}
+
+h2 {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+}
+
+h3 {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+p {
+  color: var(--text-strong);
+}
+
+small, .text-muted {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+a {
+  color: var(--primary-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--primary-800);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled, input:disabled, select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Number formatting */
+.num, td, th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Screen reader utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* SVG Icon system */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+.svg-sprite {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+
+/* Word wrapping and overflow protection across devices */
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+dd, dt, .checklist-item, p, span, a, li {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

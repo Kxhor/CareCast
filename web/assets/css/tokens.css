@@ -1,0 +1,57 @@
+:root {
+  /* ── Colour: brand (📐 observed → 🛠 AA-adjusted) ───────────────── */
+  --primary-500: #25867F;   /* observed; large decorative fills only (white text 4.38:1 ✗) */
+  --primary-600: #1F7A74;   /* DEFAULT brand: white text 5.13:1 ✓, on white 5.13:1 ✓ */
+  --primary-700: #1B6F69;   /* text/icons on tinted bg 5.22:1 ✓ */
+  --primary-800: #155C57;   /* hover/pressed; white 7.78:1 ✓ */
+  --accent-green: #7AD672;  /* hero chips; dark glyph #0F3D2E on it 6.77:1 ✓ */
+  --accent-green-ink: #0F3D2E;
+
+  /* ── Colour: surfaces & text ───────────────────────────────────── */
+  --bg-page: #E8F3F3;       /* 📐 */
+  --bg-surface: #FFFFFF;    /* cards, sidebar, topbar */
+  --bg-tint: #F2F9F9;       /* tiles */
+  --bg-active: #E4F3F3;     /* active nav pill */
+  --text-strong: #1F2D2D;   /* 14.27:1 on white */
+  --text-muted: #5B6B6B;    /* 5.58:1 on white · 4.93:1 on page bg */
+  --text-on-primary: #FFFFFF;
+  --border-subtle: #C9DCDC; /* decorative card/row borders */
+  --border-input: #7C9393;  /* 3.25:1 — meets 3:1 for UI components */
+  --focus-ring: #0B5FFF;    /* 5.13:1 on white */
+
+  /* ── Colour: status (text + icon + colour, never colour alone) ─── */
+  --ok-fg: #146C43;   --ok-bg: #E3F5EA;      /* Normal    5.69:1 */
+  --warn-fg: #8A5300; --warn-bg: #FFF1D6;    /* Watch     5.67:1 */
+  --bad-fg: #B3261E;  --bad-bg: #FDE7E6;     /* Elevated  5.52:1 */
+  --bad-solid: #C62828;                       /* white text 5.62:1 */
+
+  /* ── Colour: data viz ──────────────────────────────────────────── */
+  --chart-1: #1F7A74;         /* actual / primary series (solid) */
+  --chart-2: #3F9690;         /* comparison series (3.51:1; drawn DASHED + different marker) */
+  --chart-forecast: #B45309;  /* forecast line (dashed, 5.02:1) */
+  --chart-threshold: #B3261E; /* threshold line (dotted) */
+  --chart-band: rgba(31,122,116,.18);   /* prediction interval */
+  --chart-grid: #DDE9E9;
+
+  /* ── Typography (🔎 inferred; system stack) ────────────────────── */
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-xs: .75rem;  --fs-sm: .875rem; --fs-md: 1rem;   --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem; --fs-2xl: 1.5rem; --fs-3xl: 2rem;  --fs-display: 2.5rem;
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+  --lh-body: 1.5; --lh-tight: 1.2;
+
+  /* ── Space (4-px base), radius, elevation ──────────────────────── */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --radius-sm: 6px; --radius-md: 8px; --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(16,40,40,.06), 0 2px 8px rgba(16,40,40,.04);
+
+  /* ── Layout ────────────────────────────────────────────────────── */
+  --sidebar-w: 264px; --sidebar-rail-w: 72px; --topbar-h: 64px;
+  --content-max: 1440px; --gap: 16px; --card-pad: 20px;
+  --row-h: 48px; --thead-h: 44px; --target-min: 44px;
+
+  /* ── Motion ────────────────────────────────────────────────────── */
+  --t-fast: 150ms; --ease: cubic-bezier(.2,.0,.2,1);
+}
+@media (min-width: 1280px) { :root { --gap: 20px; } }
+@media (prefers-reduced-motion: reduce) { :root { --t-fast: 0ms; } }
