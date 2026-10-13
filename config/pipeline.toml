@@ -1,0 +1,39 @@
+# config/pipeline.toml
+# CareCast forecasting and evaluation configuration (Phase 3)
+
+[data]
+# Primary training start date (post-Omicron endemic stability)
+training_start = "2022-10-01"
+
+[data.disease_training_start]
+flu     = "2022-10-01"
+covid19 = "2022-10-01"
+rsv     = "2023-10-07" # Inception date of NHSN RSV reporting
+
+[split]
+train_ratio = 0.60
+valid_ratio = 0.20
+test_ratio  = 0.20
+
+[forecast]
+horizons             = [1, 2, 3, 4]
+interval_level       = 0.80
+threshold_percentile = 75.0
+threshold_method     = "percentile_75_of_training_block"
+refit_stride         = 1
+random_seed          = 42
+
+[models]
+baselines  = ["baseline_persistence", "baseline_seasonal_naive"]
+candidates = ["linear_lag", "hgb_lag"]
+
+[features]
+lags                   = [0, 1, 2, 3]
+roll_mean_window       = 4
+include_seasonal_lag52 = true
+include_woy            = true
+include_pct_reporting  = true
+
+[explain]
+permutation_repeats = 10
+random_seed         = 42

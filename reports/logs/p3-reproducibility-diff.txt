@@ -1,0 +1,1 @@
+REPRODUCIBILITY CHECK PASSED (AT-43): 96/96 metrics bit-exact identical between Run 1 and Run 2. Zero diff.
