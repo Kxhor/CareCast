@@ -71,7 +71,35 @@ def cmd_ingest(
             if all_raw:
                 found = all_raw
         if not found:
-            raise FileNotFoundError("No raw CSV file specified and none found in data/raw/.")
+            raw_dir = Path("data/raw")
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            target_csv = raw_dir / "ua7e-t2fy.csv"
+            cdc_url = None
+            try:
+                mapping_file = Path(mapping_path)
+                if mapping_file.exists():
+                    with open(mapping_file, "rb") as f:
+                        cfg = tomllib.load(f)
+                        cdc_url = cfg.get("source", {}).get("url")
+            except Exception:
+                pass
+            if not cdc_url:
+                cdc_url = "https://data.cdc.gov/api/views/ua7e-t2fy/rows.csv?accessType=DOWNLOAD"
+
+            print(f"--> No raw CSV found in data/raw/. Downloading official CDC dataset from:\n    {cdc_url}...")
+            try:
+                import urllib.request
+                urllib.request.urlretrieve(cdc_url, target_csv)
+                if target_csv.exists() and target_csv.stat().st_size > 0:
+                    print(f"[OK] Downloaded {target_csv} ({target_csv.stat().st_size:,} bytes).")
+                    found = [target_csv]
+            except Exception as dl_err:
+                raise FileNotFoundError(
+                    f"No raw CSV found in data/raw/ and automatic download failed: {dl_err}\n"
+                    f"Please download manually via:\n"
+                    f"curl -o data/raw/ua7e-t2fy.csv '{cdc_url}'"
+                ) from dl_err
+
         csv_path = found[0]
 
     print(f"--> Ingesting {csv_path} into {db_path}...")
