@@ -8,6 +8,11 @@ version = "0.1.0"
 description = "Explainable respiratory-admission forecasting and capacity early-warning"
 readme = "README.md"
 requires-python = ">=3.11"
+authors = [
+    { name = "Kishor G" },
+    { name = "Thanujaa P" },
+]
+license = { text = "MIT" }
 
 [tool.pytest.ini_options]
 minversion = "7.0"

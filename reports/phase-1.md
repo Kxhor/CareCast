@@ -69,7 +69,7 @@ All validation commands were executed and their raw outputs logged to `reports/l
   ..............                                                           [100%]
   14 passed in 0.13s
   ```
-- **Result:** PASS ([reports/logs/p1-clean-install.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-clean-install.txt))
+- **Result:** PASS ([reports/logs/p1-clean-install.txt](reports/logs/p1-clean-install.txt))
 
 ### B. Unit & Smoke Tests
 - **Command:** `.venv/bin/python -m pytest -v`
@@ -92,7 +92,7 @@ All validation commands were executed and their raw outputs logged to `reports/l
 
   ============================== 14 passed in 0.13s ==============================
   ```
-- **Result:** PASS ([reports/logs/p1-pytest.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-pytest.txt))
+- **Result:** PASS ([reports/logs/p1-pytest.txt](reports/logs/p1-pytest.txt))
 
 ### C. Package Import Check
 - **Command:** `.venv/bin/python -c "import carecast; print('CareCast Version:', carecast.__version__)"`
@@ -100,7 +100,7 @@ All validation commands were executed and their raw outputs logged to `reports/l
   ```text
   CareCast Version: 0.1.0
   ```
-- **Result:** PASS ([reports/logs/p1-import.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-import.txt))
+- **Result:** PASS ([reports/logs/p1-import.txt](reports/logs/p1-import.txt))
 
 ### D. Dependency Vulnerability Audit (`pip-audit`)
 - **Command:** `.venv/bin/pip-audit`
@@ -108,12 +108,12 @@ All validation commands were executed and their raw outputs logged to `reports/l
   ```text
   No known vulnerabilities found
   ```
-- **Result:** PASS ([reports/logs/p1-pip-audit.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-pip-audit.txt))
+- **Result:** PASS ([reports/logs/p1-pip-audit.txt](reports/logs/p1-pip-audit.txt))
 
 ### E. Secret Scan
 - **Command:** `git grep -nEi "(api[_-]?key|secret|token|passwd|password|bearer|private[_-]?key)" -- . ":(exclude)docs" ":(exclude)reports"`
 - **Output:** *(empty string, exit code 1)*
-- **Result:** PASS (0 secrets, tokens, or passwords found in code; [reports/logs/p1-secret-scan.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-secret-scan.txt))
+- **Result:** PASS (0 secrets, tokens, or passwords found in code; [reports/logs/p1-secret-scan.txt](reports/logs/p1-secret-scan.txt))
 
 ### F. Verification Script (`scripts/verify.py`)
 - **Command:** `.venv/bin/python scripts/verify.py`
@@ -121,13 +121,13 @@ All validation commands were executed and their raw outputs logged to `reports/l
   ```text
   ==================================================
   CareCast Verification Suite
-  Python interpreter: /Users/thanujaa/Desktop/CareCast/.venv/bin/python
+  Python interpreter: .venv/bin/python
   ==================================================
-  --> Running check: Pytest Test Suite (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -m pytest -q)
+  --> Running check: Pytest Test Suite (.venv/bin/python -m pytest -q)
   [PASS] Pytest Test Suite
-  --> Running check: Package Import Smoke Test (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -c import carecast)
+  --> Running check: Package Import Smoke Test (.venv/bin/python -c import carecast)
   [PASS] Package Import Smoke Test
-  --> Running check: Dependency Vulnerability Audit (/Users/thanujaa/Desktop/CareCast/.venv/bin/python -m pip_audit)
+  --> Running check: Dependency Vulnerability Audit (.venv/bin/python -m pip_audit)
   [PASS] Dependency Vulnerability Audit
 
   ---------------- Summary ----------------
@@ -137,7 +137,7 @@ All validation commands were executed and their raw outputs logged to `reports/l
   -----------------------------------------
   ALL VERIFICATION CHECKS PASSED.
   ```
-- **Result:** PASS ([reports/logs/p1-verify.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-verify.txt))
+- **Result:** PASS ([reports/logs/p1-verify.txt](reports/logs/p1-verify.txt))
 
 ---
 
@@ -145,12 +145,12 @@ All validation commands were executed and their raw outputs logged to `reports/l
 
 | Acceptance Criterion | Result | Evidence |
 |---|---|---|
-| (a) Clean-venv install succeeds | **PASS** | Installed cleanly in isolated `/tmp/test_clean_venv` from `requirements-dev.txt`; all 14 tests passed in clean venv ([reports/logs/p1-clean-install.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-clean-install.txt)). |
-| (b) Smoke test passes | **PASS** | `test_smoke.py` passes verifying `carecast.__version__ == "0.1.0"` and submodule availability ([reports/logs/p1-pytest.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-pytest.txt)). |
-| (c) `settings.py` raises clear error on invalid env value | **PASS** | Verified by unit tests rejecting invalid env, invalid rate limits, invalid log levels, and unsafe db paths ([test_settings.py](file:///Users/thanujaa/Desktop/CareCast/tests/unit/test_settings.py)). |
-| (d) `.gitignore` excludes `.env`, `data/raw/`, `data/*.db` | **PASS** | Verified via `git status --ignored -s`: `.venv/`, `.DS_Store`, `.pytest_cache/`, `data/raw/*`, `data/*.db` ignored ([.gitignore](file:///Users/thanujaa/Desktop/CareCast/.gitignore)). |
-| (e) `pip-audit` runs and its output is saved | **PASS** | `pip-audit` reports "No known vulnerabilities found" after pip upgrade to 26.2.1 ([reports/logs/p1-pip-audit.txt](file:///Users/thanujaa/Desktop/CareCast/reports/logs/p1-pip-audit.txt)). |
-| (f) Zero dependencies beyond TRD §3.2 | **PASS** | Only `fastapi`, `uvicorn`, `pandas`, `numpy`, `scikit-learn` (runtime) and `pytest`, `httpx`, `playwright`, `pip-audit`, `bandit` (dev) installed ([requirements.txt](file:///Users/thanujaa/Desktop/CareCast/requirements.txt), [requirements-dev.txt](file:///Users/thanujaa/Desktop/CareCast/requirements-dev.txt)). |
+| (a) Clean-venv install succeeds | **PASS** | Installed cleanly in isolated test venv from `requirements-dev.txt`; all 14 tests passed in clean venv ([reports/logs/p1-clean-install.txt](reports/logs/p1-clean-install.txt)). |
+| (b) Smoke test passes | **PASS** | `test_smoke.py` passes verifying `carecast.__version__ == "0.1.0"` and submodule availability ([reports/logs/p1-pytest.txt](reports/logs/p1-pytest.txt)). |
+| (c) `settings.py` raises clear error on invalid env value | **PASS** | Verified by unit tests rejecting invalid env, invalid rate limits, invalid log levels, and unsafe db paths ([test_settings.py](tests/unit/test_settings.py)). |
+| (d) `.gitignore` excludes `.env`, `data/raw/`, `data/*.db` | **PASS** | Verified via `git status --ignored -s`: `.venv/`, `.DS_Store`, `.pytest_cache/`, `data/raw/*`, `data/*.db` ignored ([.gitignore](.gitignore)). |
+| (e) `pip-audit` runs and its output is saved | **PASS** | `pip-audit` reports "No known vulnerabilities found" after pip upgrade to 26.2.1 ([reports/logs/p1-pip-audit.txt](reports/logs/p1-pip-audit.txt)). |
+| (f) Zero dependencies beyond TRD §3.2 | **PASS** | Only `fastapi`, `uvicorn`, `pandas`, `numpy`, `scikit-learn` (runtime) and `pytest`, `httpx`, `playwright`, `pip-audit`, `bandit` (dev) installed ([requirements.txt](requirements.txt), [requirements-dev.txt](requirements-dev.txt)). |
 
 ---
 
