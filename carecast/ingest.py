@@ -206,6 +206,7 @@ def ingest_csv(
         rows_inserted = 0
         rows_skipped = 0
         quality_rows: list[dict[str, Any]] = []
+        seen_keys: set[tuple[str, str, str]] = set()
 
         with csv_path.open(newline="", encoding="utf-8") as f:
             reader_dict = csv.DictReader(f)
@@ -226,7 +227,7 @@ def ingest_csv(
                         "detail": f"Line {lineno}: unparseable date '{raw_date}'",
                         "week_start": None,
                         "week_end": None,
-                        "jurisdiction_code": None,
+                        "jurisdiction_code": "US",
                         "disease_code": None,
                     })
                     rows_skipped += 1
@@ -247,6 +248,20 @@ def ingest_csv(
 
                 # Parse each disease.
                 for disease in _DISEASE_CODES:
+                    key = ("US", disease, date_str)
+                    if key in seen_keys:
+                        quality_rows.append({
+                            "check_name": "duplicate_key",
+                            "severity": "warning",
+                            "detail": f"Line {lineno}: duplicate observation for {disease} on {date_str}",
+                            "week_start": None,
+                            "week_end": date_str,
+                            "jurisdiction_code": "US",
+                            "disease_code": disease,
+                        })
+                        continue
+                    seen_keys.add(key)
+
                     d_cfg = col_cfg["diseases"][disease]
                     count_col = d_cfg.get("count_column", "")
                     rate_col = d_cfg.get("rate_column", "")

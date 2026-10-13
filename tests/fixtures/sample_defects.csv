@@ -1,0 +1,8 @@
+Week Ending Date,Geographic aggregation,Total Influenza Admissions,"Total number of Influenza Admissions per 100,000 population",Number Hospitals Reporting Influenza Admissions,Percent Hospitals Reporting Influenza Admissions,Total COVID-19 Admissions,"Total number of COVID-19 Admissions per 100,000 population",Number Hospitals Reporting COVID-19 Admissions,Percent Hospitals Reporting COVID-19 Admissions,Total RSV Admissions,"Total number of RSV Admissions per 100,000 population",Number Hospitals Reporting RSV Admissions,Percent Hospitals Reporting RSV Admissions
+2024-01-06,USA,1200,0.36,4000,95.5,2500,0.75,4000,95.5,800,0.24,4000,95.5
+2024-01-06,USA,1200,0.36,4000,95.5,2500,0.75,4000,95.5,800,0.24,4000,95.5
+2024-01-10,USA,1100,0.33,4000,95.0,2400,0.72,4000,95.0,750,0.22,4000,95.0
+2024-01-13,USA,-50,0.35,4000,95.0,2400,0.72,4000,95.0,750,0.22,4000,95.0
+2024-01-20,USA,invalid_num,0.35,4000,95.0,2400,0.72,4000,95.0,750,0.22,4000,95.0
+2024-01-27,USA,1300,0.39,4000,150.0,2300,0.69,4000,150.0,650,0.19,4000,150.0
+2024-02-24,USA,1000,0.30,4000,94.0,2000,0.60,4000,94.0,500,0.15,4000,94.0
