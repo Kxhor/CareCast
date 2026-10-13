@@ -1,0 +1,220 @@
+# CareCast Phase 4 — Manual curl Output Audit Log
+# Generated on: 2026-10-13 17:35:20 UTC
+# Database: data/carecast.db (Real Ingested Data)
+================================================================================
+
+## E1_HEALTH
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/health ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 72
+content-type: application/json
+x-request-id: 21aa8327-afa5-4c7c-acbf-9e566d8e576a
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"status":"ok","db_ok":true,"data_as_of":"2026-10-03","version":"0.1.0"}
+--------------------------------------------------------------------------------
+
+## E2_META
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/meta ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 8200
+content-type: application/json
+x-request-id: a6b5e031-f434-434a-be81-d7183392ec2c
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"app":{"name":"CareCast","version":"0.1.0","env":"dev"},"data_as_of":"2026-10-03","source":{"name":"Weekly Hospital Respiratory Data (HRD) Metrics by Jurisdiction","publisher":"CDC / NHSN","dataset_id":"ua7e-t2fy","url":"https://data.cdc.gov/api/views/ua7e-t2fy/rows.csv?accessType=DOWNLOAD","retrieved_at":"2026-10-13T16:28:26Z","file_sha256":"cdbde5be30e3ae2fa57deb323da68d0364ebb43ea5dcc3b5f88987fbcd979ebc"},"diseases":[{"code":"covid19","label":"COVID-19","available":true,"reason":null},{"code":"flu","label":"Influenza","available":true,"reason":null},{"code":"rsv","label":"RSV","available":true,"reason":null}],"jurisdictions":[{"code":"US","name":"United States (national)","level":"national"}],"horizons":[1,2,3,4],"target_kind":{"covid19":"count","flu":"count","rsv":"count"},"defaults":{"threshold_method":"percentile_75_of_training_block","interval_level":0.8,"scenario":{"min":-50.0,"max":100.0,"presets":[0.0,10.0,20.0]},"capacity":{"typical_weekly_admissions":100.0,"alos_days":4.5,"staffed_beds":80.0,"patients_per_nurse":4.0,"is_simulated":true,"note":"DEMO PLACEHOLDER â€” not data"}},"limitations":[{"id":"L-01","text":"Data are U.S. national surveillance data, not Indian hospitals or any specific hospital."},{"id":"L-02","text":"Data are aggregated at jurisdiction level, not hospital level."},{"id":"L-03","text":"Scope is respiratory admissions (influenza, COVID-19, RSV) only."},{"id":"L-04","text":"Forecast admissions are not occupancy or capacity; the alert is a planning signal."},{"id":"L-05","text":"Data are weekly; no daily or intraday forecast."},{"id":"L-06","text":"Reporting hospitals may not represent all hospitals; coverage varies by week."},{"id":"L-07","text":"Reporting rules changed over time (mandatory -> voluntary -> CMS-required); RSV was voluntary until 1 Nov 2024."},{"id":"L-08","text":"Thresholds and capacity inputs are user assumptions, not validated rules."},{"id":"L-09","text":"Capacity illustration is SIMULATED and uses a steady-state approximation."},{"id":"L-10","text":"Models are trained on few seasons; intervals are empirical, not guarantees."},{"id":"L-11","text":"Forecasts are not clinically validated; not for diagnosis or treatment decisions."},{"id":"L-12","text":"Explanations show model associations, not causes."}],"quality_issues":[{"check_name":"missing_week","severity":"info","detail":"Line 2506: rsv has neither count nor rate for 2021-10-09"},{"check_name":"missing_week","severity":"info","detail":"Line 2507: rsv has neither count nor rate for 2021-10-16"},{"check_name":"missing_week","severity":"info","detail":"Line 2508: rsv has neither count nor rate for 2021-10-23"},{"check_name":"missing_week","severity":"info","detail":"Line 2509: rsv has neither count nor rate for 2021-10-30"},{"check_name":"missing_week","severity":"info","detail":"Line 2510: rsv has neither count nor rate for 2021-11-06"},{"check_name":"missing_week","severity":"info","detail":"Line 2511: rsv has neither count nor rate for 2021-11-13"},{"check_name":"missing_week","severity":"info","detail":"Line 2512: rsv has neither count nor rate for 2021-11-20"},{"check_name":"missing_week","severity":"info","detail":"Line 2513: rsv has neither count nor rate for 2021-11-27"},{"check_name":"missing_week","severity":"info","detail":"Line 2514: rsv has neither count nor rate for 2021-12-04"},{"check_name":"missing_week","severity":"info","detail":"Line 2515: rsv has neither count nor rate for 2021-12-11"},{"check_name":"missing_week","severity":"info","detail":"Line 2516: rsv has neither count nor rate for 2021-12-18"},{"check_name":"missing_week","severity":"info","detail":"Line 2517: rsv has neither count nor rate for 2021-12-25"},{"check_name":"missing_week","severity":"info","detail":"Line 2518: rsv has neither count nor rate for 2022-01-01"},{"check_name":"missing_week","severity":"info","detail":"Line 2519: rsv has neither count nor rate for 2022-01-08"},{"check_name":"missing_week","severity":"info","detail":"Line 2520: rsv has neither count nor rate for 2022-01-15"},{"check_name":"missing_week","severity":"info","detail":"Line 2521: rsv has neither count nor rate for 2022-01-22"},{"check_name":"missing_week","severity":"info","detail":"Line 2522: rsv has neither count nor rate for 2022-01-29"},{"check_name":"missing_week","severity":"info","detail":"Line 2523: rsv has neither count nor rate for 2022-02-05"},{"check_name":"missing_week","severity":"info","detail":"Line 2524: rsv has neither count nor rate for 2022-02-12"},{"check_name":"missing_week","severity":"info","detail":"Line 2525: rsv has neither count nor rate for 2022-02-19"},{"check_name":"missing_week","severity":"info","detail":"Line 2526: rsv has neither count nor rate for 2022-02-26"},{"check_name":"missing_week","severity":"info","detail":"Line 2527: rsv has neither count nor rate for 2022-03-05"},{"check_name":"missing_week","severity":"info","detail":"Line 2528: rsv has neither count nor rate for 2022-03-12"},{"check_name":"missing_week","severity":"info","detail":"Line 2529: rsv has neither count nor rate for 2022-03-19"},{"check_name":"missing_week","severity":"info","detail":"Line 2530: rsv has neither count nor rate for 2022-03-26"},{"check_name":"missing_week","severity":"info","detail":"Line 2531: rsv has neither count nor rate for 2022-04-02"},{"check_name":"missing_week","severity":"info","detail":"Line 2532: rsv has neither count nor rate for 2022-04-09"},{"check_name":"missing_week","severity":"info","detail":"Line 2533: rsv has neither count nor rate for 2022-04-16"},{"check_name":"missing_week","severity":"info","detail":"Line 2534: rsv has neither count nor rate for 2022-04-23"},{"check_name":"missing_week","severity":"info","detail":"Line 2535: rsv has neither count nor rate for 2022-04-30"},{"check_name":"missing_week","severity":"info","detail":"Line 2536: rsv has neither count nor rate for 2022-05-07"},{"check_name":"missing_week","severity":"info","detail":"Line 2537: rsv has neither count nor rate for 2022-05-14"},{"check_name":"missing_week","severity":"info","detail":"Line 2538: rsv has neither count nor rate for 2022-05-21"},{"check_name":"missing_week","severity":"info","detail":"Line 2539: rsv has neither count nor rate for 2022-05-28"},{"check_name":"missing_week","severity":"info","detail":"Line 2540: rsv has neither count nor rate for 2022-06-04"},{"check_name":"missing_week","severity":"info","detail":"Line 2541: rsv has neither count nor rate for 2022-06-11"},{"check_name":"missing_week","severity":"info","detail":"Line 2542: rsv has neither count nor rate for 2022-06-18"},{"check_name":"missing_week","severity":"info","detail":"Line 2543: rsv has neither count nor rate for 2022-06-25"},{"check_name":"missing_week","severity":"info","detail":"Line 2544: rsv has neither count nor rate for 2022-07-02"},{"check_name":"missing_week","severity":"info","detail":"Line 2545: rsv has neither count nor rate for 2022-07-09"},{"check_name":"missing_week","severity":"info","detail":"Line 2546: rsv has neither count nor rate for 2022-07-16"},{"check_name":"missing_week","severity":"info","detail":"Line 2547: rsv has neither count nor rate for 2022-07-23"},{"check_name":"missing_week","severity":"info","detail":"Line 2548: rsv has neither count nor rate for 2022-07-30"},{"check_name":"missing_week","severity":"info","detail":"Line 2549: rsv has neither count nor rate for 2022-08-06"},{"check_name":"missing_week","severity":"info","detail":"Line 2550: rsv has neither count nor rate for 2022-08-13"},{"check_name":"missing_week","severity":"info","detail":"Line 2551: rsv has neither count nor rate for 2022-08-20"},{"check_name":"missing_week","severity":"info","detail":"Line 2552: rsv has neither count nor rate for 2022-08-27"},{"check_name":"missing_week","severity":"info","detail":"Line 2553: rsv has neither count nor rate for 2022-09-03"},{"check_name":"missing_week","severity":"info","detail":"Line 2554: rsv has neither count nor rate for 2022-09-10"},{"check_name":"missing_week","severity":"info","detail":"Line 2555: rsv has neither count nor rate for 2022-09-17"}],"disclaimer":"Demonstration forecasts. Not clinically validated. Decision support only."}
+--------------------------------------------------------------------------------
+
+## E3_SUMMARY_FLU
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/summary?disease=flu&jurisdiction=US ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 1905
+content-type: application/json
+x-request-id: c2752c9a-14ea-460d-921d-05f08906bb49
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"data_as_of":"2026-10-03","stale":false,"selected":{"disease":"flu","jurisdiction":"US","target_kind":"count","unit":"admissions per week","latest":{"week_end_date":"2026-10-03","value":3334.0,"change_pct_vs_prior_week":26.62},"threshold":{"value":10828.25,"source":"default"},"next_week":{"target_week_end_date":"2026-10-10","point":4222.717112764016,"lower":770.675839598,"upper":5230.0211081079815,"tier":"normal","model_name":"linear_lag"},"ring":{"forecast_pct_of_threshold":39.0,"lower_pct":7.12,"upper_pct":48.3},"recent":[{"week_end_date":"2026-08-15","value":696.0},{"week_end_date":"2026-08-22","value":874.0},{"week_end_date":"2026-08-29","value":921.0},{"week_end_date":"2026-09-05","value":1243.0},{"week_end_date":"2026-09-12","value":1540.0},{"week_end_date":"2026-09-19","value":2060.0},{"week_end_date":"2026-09-26","value":2633.0},{"week_end_date":"2026-10-03","value":3334.0}],"actions":{"tier":"normal","items":["Maintain routine infection-control surveillance and standard bed tracking.","Review weekly admission trajectory and regional community transmission reports.","Verify baseline respiratory medication and personal protective equipment supplies."],"footer":"Final decisions rest with authorised staff."}},"watchlist":[{"disease":"covid19","label":"COVID-19","available":true,"latest_value":4253.0,"next_week_point":3853.0165299951177,"tier":"normal","threshold":15743.0},{"disease":"flu","label":"Influenza","available":true,"latest_value":3334.0,"next_week_point":4222.717112764016,"tier":"normal","threshold":10828.25},{"disease":"rsv","label":"RSV","available":true,"latest_value":541.0,"next_week_point":937.1655544143524,"tier":"normal","threshold":5287.0}],"evaluation_headline":{"horizon_weeks":1,"selected_model":"linear_lag","test_mae":595.7278074216357,"persistence_test_mae":564.7575757575758,"beats_persistence":false,"test_interval_coverage":0.9696969696969697}}
+--------------------------------------------------------------------------------
+
+## E3_SUMMARY_COVID
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/summary?disease=covid19&jurisdiction=US ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 1910
+content-type: application/json
+x-request-id: 5a7ad47a-cc47-4f38-83be-9682924e22b3
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"data_as_of":"2026-10-03","stale":false,"selected":{"disease":"covid19","jurisdiction":"US","target_kind":"count","unit":"admissions per week","latest":{"week_end_date":"2026-10-03","value":4253.0,"change_pct_vs_prior_week":-6.79},"threshold":{"value":15743.0,"source":"default"},"next_week":{"target_week_end_date":"2026-10-10","point":3853.0165299951177,"lower":3742.8127330924754,"upper":4635.6434022545045,"tier":"normal","model_name":"linear_lag"},"ring":{"forecast_pct_of_threshold":24.47,"lower_pct":23.77,"upper_pct":29.45},"recent":[{"week_end_date":"2026-08-15","value":2396.0},{"week_end_date":"2026-08-22","value":2890.0},{"week_end_date":"2026-08-29","value":3665.0},{"week_end_date":"2026-09-05","value":4048.0},{"week_end_date":"2026-09-12","value":4321.0},{"week_end_date":"2026-09-19","value":4565.0},{"week_end_date":"2026-09-26","value":4563.0},{"week_end_date":"2026-10-03","value":4253.0}],"actions":{"tier":"normal","items":["Maintain routine infection-control surveillance and standard bed tracking.","Review weekly admission trajectory and regional community transmission reports.","Verify baseline respiratory medication and personal protective equipment supplies."],"footer":"Final decisions rest with authorised staff."}},"watchlist":[{"disease":"covid19","label":"COVID-19","available":true,"latest_value":4253.0,"next_week_point":3853.0165299951177,"tier":"normal","threshold":15743.0},{"disease":"flu","label":"Influenza","available":true,"latest_value":3334.0,"next_week_point":4222.717112764016,"tier":"normal","threshold":10828.25},{"disease":"rsv","label":"RSV","available":true,"latest_value":541.0,"next_week_point":937.1655544143524,"tier":"normal","threshold":5287.0}],"evaluation_headline":{"horizon_weeks":1,"selected_model":"linear_lag","test_mae":325.56863079984834,"persistence_test_mae":294.0,"beats_persistence":false,"test_interval_coverage":0.21212121212121213}}
+--------------------------------------------------------------------------------
+
+## E3_SUMMARY_RSV
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/summary?disease=rsv&jurisdiction=US ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 1889
+content-type: application/json
+x-request-id: 20bae100-13da-4057-bbb3-6f89c106425a
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"data_as_of":"2026-10-03","stale":false,"selected":{"disease":"rsv","jurisdiction":"US","target_kind":"count","unit":"admissions per week","latest":{"week_end_date":"2026-10-03","value":541.0,"change_pct_vs_prior_week":17.61},"threshold":{"value":5287.0,"source":"default"},"next_week":{"target_week_end_date":"2026-10-10","point":937.1655544143524,"lower":481.33070038805437,"upper":1614.8625771949205,"tier":"normal","model_name":"linear_lag"},"ring":{"forecast_pct_of_threshold":17.73,"lower_pct":9.1,"upper_pct":30.54},"recent":[{"week_end_date":"2026-08-15","value":330.0},{"week_end_date":"2026-08-22","value":350.0},{"week_end_date":"2026-08-29","value":329.0},{"week_end_date":"2026-09-05","value":299.0},{"week_end_date":"2026-09-12","value":329.0},{"week_end_date":"2026-09-19","value":411.0},{"week_end_date":"2026-09-26","value":460.0},{"week_end_date":"2026-10-03","value":541.0}],"actions":{"tier":"normal","items":["Maintain routine infection-control surveillance and standard bed tracking.","Review weekly admission trajectory and regional community transmission reports.","Verify baseline respiratory medication and personal protective equipment supplies."],"footer":"Final decisions rest with authorised staff."}},"watchlist":[{"disease":"covid19","label":"COVID-19","available":true,"latest_value":4253.0,"next_week_point":3853.0165299951177,"tier":"normal","threshold":15743.0},{"disease":"flu","label":"Influenza","available":true,"latest_value":3334.0,"next_week_point":4222.717112764016,"tier":"normal","threshold":10828.25},{"disease":"rsv","label":"RSV","available":true,"latest_value":541.0,"next_week_point":937.1655544143524,"tier":"normal","threshold":5287.0}],"evaluation_headline":{"horizon_weeks":1,"selected_model":"linear_lag","test_mae":171.24606328561467,"persistence_test_mae":83.14285714285714,"beats_persistence":false,"test_interval_coverage":1.0}}
+--------------------------------------------------------------------------------
+
+## E4_OBSERVATIONS
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/observations?disease=flu&jurisdiction=US&from=2024-01-06&to=2024-03-30 ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 1249
+content-type: application/json
+x-request-id: 465ba4da-7875-4049-96d9-6379851688e8
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"disease":"flu","jurisdiction":"US","target_kind":"count","unit":"admissions per week","count":13,"points":[{"week_end_date":"2024-01-06","value":19497.0,"is_imputed":false,"pct_reporting":93.9},{"week_end_date":"2024-01-13","value":15882.0,"is_imputed":false,"pct_reporting":93.93},{"week_end_date":"2024-01-20","value":13287.0,"is_imputed":false,"pct_reporting":93.92},{"week_end_date":"2024-01-27","value":12976.0,"is_imputed":false,"pct_reporting":93.88},{"week_end_date":"2024-02-03","value":11945.0,"is_imputed":false,"pct_reporting":93.81},{"week_end_date":"2024-02-10","value":11618.0,"is_imputed":false,"pct_reporting":93.69},{"week_end_date":"2024-02-17","value":11103.0,"is_imputed":false,"pct_reporting":93.71},{"week_end_date":"2024-02-24","value":10843.0,"is_imputed":false,"pct_reporting":93.69},{"week_end_date":"2024-03-02","value":10784.0,"is_imputed":false,"pct_reporting":93.69},{"week_end_date":"2024-03-09","value":9404.0,"is_imputed":false,"pct_reporting":93.64},{"week_end_date":"2024-03-16","value":7316.0,"is_imputed":false,"pct_reporting":93.62},{"week_end_date":"2024-03-23","value":6035.0,"is_imputed":false,"pct_reporting":93.48},{"week_end_date":"2024-03-30","value":5568.0,"is_imputed":false,"pct_reporting":93.43}]}
+--------------------------------------------------------------------------------
+
+## E5_FORECAST_FLU
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/forecast?disease=flu&jurisdiction=US ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 1431
+content-type: application/json
+x-request-id: eea729d6-7b67-479c-9a10-2aa99eb30b65
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"run":{"id":5,"created_at":"2026-10-13T16:53:56Z","data_end_date":"2026-10-03","target_kind":"count"},"interval_level":0.8,"threshold":{"value":10828.25,"source":"default","method":"percentile_75_of_training_block"},"horizons":[{"horizon_weeks":1,"origin_week_end_date":"2026-10-03","target_week_end_date":"2026-10-10","point":4222.717112764016,"lower":770.675839598,"upper":5230.0211081079815,"model_name":"linear_lag","tier":"normal"},{"horizon_weeks":2,"origin_week_end_date":"2026-10-03","target_week_end_date":"2026-10-17","point":4972.946480577945,"lower":0.0,"upper":6536.032604309165,"model_name":"linear_lag","tier":"normal"},{"horizon_weeks":3,"origin_week_end_date":"2026-10-03","target_week_end_date":"2026-10-24","point":1668.364881530513,"lower":0.0,"upper":6889.364881530513,"model_name":"hgb_lag","tier":"normal"},{"horizon_weeks":4,"origin_week_end_date":"2026-10-03","target_week_end_date":"2026-10-31","point":285.69249107870377,"lower":0.0,"upper":5506.692491078704,"model_name":"hgb_lag","tier":"normal"}],"actions":{"tier":"normal","items":["Maintain routine infection-control surveillance and standard bed tracking.","Review weekly admission trajectory and regional community transmission reports.","Verify baseline respiratory medication and personal protective equipment supplies."],"footer":"Final decisions rest with authorised staff."},"disclaimer":"Planning signal â€” not a bed-shortage prediction."}
+--------------------------------------------------------------------------------
+
+## E6_EVALUATION_FLU_H1
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/evaluation?disease=flu&jurisdiction=US&horizon=1 ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 6097
+content-type: application/json
+x-request-id: ef440e73-fe7f-4f2f-8c7d-cf9059768243
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"run":{"id":5,"train":["2023-09-30","2025-07-12"],"validation":["2025-07-19","2026-02-14"],"test":["2026-02-21","2026-10-03"],"n_train":94,"n_valid":31,"n_test":33},"metrics":[{"horizon_weeks":1,"model_name":"baseline_persistence","split":"test","mae":564.7575757575758,"rmse":1017.284248587504,"n_eval":33,"mae_vs_persistence":1.0,"is_selected":false},{"horizon_weeks":1,"model_name":"baseline_seasonal_naive","split":"test","mae":3304.4545454545455,"rmse":6816.444169888881,"n_eval":33,"mae_vs_persistence":5.851102645275527,"is_selected":false},{"horizon_weeks":1,"model_name":"hgb_lag","split":"test","mae":1370.0837138701431,"rmse":2912.8541236221818,"n_eval":33,"mae_vs_persistence":2.4259678359024908,"is_selected":false},{"horizon_weeks":1,"model_name":"linear_lag","split":"test","mae":595.7278074216357,"rmse":936.8225630393679,"n_eval":33,"mae_vs_persistence":1.0548380986700638,"is_selected":true},{"horizon_weeks":1,"model_name":"baseline_persistence","split":"validation","mae":2251.967741935484,"rmse":4714.813939475339,"n_eval":31,"mae_vs_persistence":1.0,"is_selected":false},{"horizon_weeks":1,"model_name":"baseline_seasonal_naive","split":"validation","mae":5737.451612903225,"rmse":12456.922111174612,"n_eval":31,"mae_vs_persistence":2.547750354528656,"is_selected":false},{"horizon_weeks":1,"model_name":"hgb_lag","split":"validation","mae":4477.970811913878,"rmse":7738.1796237552335,"n_eval":31,"mae_vs_persistence":1.9884702291806478,"is_selected":false},{"horizon_weeks":1,"model_name":"linear_lag","split":"validation","mae":1755.368095942828,"rmse":3474.395665830425,"n_eval":31,"mae_vs_persistence":0.7794819007638862,"is_selected":true}],"selected":[{"horizon_weeks":1,"model_name":"linear_lag","beats_persistence":false,"test_interval_coverage":0.9696969696969697}],"verdicts":[{"horizon_weeks":1,"beats_persistence":false,"text":"On the held-out test weeks, the persistence baseline achieved a lower MAE than the selected model."}],"backtest":{"horizon_weeks":1,"points":[{"target_week_end_date":"2026-02-21","actual":14738.0,"predicted_selected":17108.707017029097,"predicted_persistence":16473.0},{"target_week_end_date":"2026-02-28","actual":11179.0,"predicted_selected":13614.55447673524,"predicted_persistence":14738.0},{"target_week_end_date":"2026-03-07","actual":9603.0,"predicted_selected":9513.857304400888,"predicted_persistence":11179.0},{"target_week_end_date":"2026-03-14","actual":7802.0,"predicted_selected":10167.861207268106,"predicted_persistence":9603.0},{"target_week_end_date":"2026-03-21","actual":6094.0,"predicted_selected":6579.605703073023,"predicted_persistence":7802.0},{"target_week_end_date":"2026-03-28","actual":3339.0,"predicted_selected":5537.630638074882,"predicted_persistence":6094.0},{"target_week_end_date":"2026-04-04","actual":2912.0,"predicted_selected":1778.1383564174687,"predicted_persistence":3339.0},{"target_week_end_date":"2026-04-11","actual":2242.0,"predicted_selected":3955.3356442942495,"predicted_persistence":2912.0},{"target_week_end_date":"2026-04-18","actual":1949.0,"predicted_selected":1445.3903457335352,"predicted_persistence":2242.0},{"target_week_end_date":"2026-04-25","actual":1884.0,"predicted_selected":2083.7478778847553,"predicted_persistence":1949.0},{"target_week_end_date":"2026-05-02","actual":1650.0,"predicted_selected":1829.448207924426,"predicted_persistence":1884.0},{"target_week_end_date":"2026-05-09","actual":1483.0,"predicted_selected":1307.0524501797229,"predicted_persistence":1650.0},{"target_week_end_date":"2026-05-16","actual":1319.0,"predicted_selected":1251.4544386001562,"predicted_persistence":1483.0},{"target_week_end_date":"2026-05-23","actual":1260.0,"predicted_selected":930.7096651620783,"predicted_persistence":1319.0},{"target_week_end_date":"2026-05-30","actual":1072.0,"predicted_selected":909.0701206579172,"predicted_persistence":1260.0},{"target_week_end_date":"2026-06-06","actual":1045.0,"predicted_selected":495.0921948097741,"predicted_persistence":1072.0},{"target_week_end_date":"2026-06-13","actual":871.0,"predicted_selected":663.664591117444,"predicted_persistence":1045.0},{"target_week_end_date":"2026-06-20","actual":795.0,"predicted_selected":218.16538867376806,"predicted_persistence":871.0},{"target_week_end_date":"2026-06-27","actual":751.0,"predicted_selected":339.46636751733854,"predicted_persistence":795.0},{"target_week_end_date":"2026-07-04","actual":734.0,"predicted_selected":238.89162884383268,"predicted_persistence":751.0},{"target_week_end_date":"2026-07-11","actual":751.0,"predicted_selected":272.32012741009754,"predicted_persistence":734.0},{"target_week_end_date":"2026-07-18","actual":666.0,"predicted_selected":342.1960564536909,"predicted_persistence":751.0},{"target_week_end_date":"2026-07-25","actual":696.0,"predicted_selected":208.2733321089019,"predicted_persistence":666.0},{"target_week_end_date":"2026-08-01","actual":657.0,"predicted_selected":462.3183266108263,"predicted_persistence":696.0},{"target_week_end_date":"2026-08-08","actual":632.0,"predicted_selected":346.33966531729436,"predicted_persistence":657.0},{"target_week_end_date":"2026-08-15","actual":696.0,"predicted_selected":483.14719134428225,"predicted_persistence":632.0},{"target_week_end_date":"2026-08-22","actual":874.0,"predicted_selected":687.4970651542756,"predicted_persistence":696.0},{"target_week_end_date":"2026-08-29","actual":921.0,"predicted_selected":1007.365834087319,"predicted_persistence":874.0},{"target_week_end_date":"2026-09-05","actual":1243.0,"predicted_selected":994.1844014329404,"predicted_persistence":921.0},{"target_week_end_date":"2026-09-12","actual":1540.0,"predicted_selected":1740.4363053560517,"predicted_persistence":1243.0},{"target_week_end_date":"2026-09-19","actual":2060.0,"predicted_selected":1916.0009160422594,"predicted_persistence":1540.0},{"target_week_end_date":"2026-09-26","actual":2633.0,"predicted_selected":2784.7456866165767,"predicted_persistence":2060.0},{"target_week_end_date":"2026-10-03","actual":3334.0,"predicted_selected":3339.8089805587465,"predicted_persistence":2633.0}]}}
+--------------------------------------------------------------------------------
+
+## E7_EXPLAIN_FLU_H1
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/explain?disease=flu&jurisdiction=US&horizon=1 ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 2069
+content-type: application/json
+x-request-id: 41b7edbe-f919-4653-b4ba-c8d85c293138
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"horizon_weeks":1,"model_name":"linear_lag","base_value":7327.2215189873405,"prediction":4222.717112764016,"contributions":[{"feature":"y_lag0","label":"Admissions last week","value":-6958.151738999974,"feature_value":3334.0},{"feature":"y_lag1","label":"Admissions 2 weeks ago","value":6855.694105618986,"feature_value":2633.0},{"feature":"y_lag2","label":"Admissions 3 weeks ago","value":-3773.6840088236345,"feature_value":2060.0},{"feature":"y_lag3","label":"Admissions 4 weeks ago","value":1643.0666893689875,"feature_value":1540.0},{"feature":"roll_mean_4","label":"4-week rolling average","value":-877.948726624359,"feature_value":2391.75},{"feature":"woy_cos","label":"Seasonal cycle (cosine)","value":238.87548383044762,"feature_value":0.23931566428755738},{"feature":"woy_sin","label":"Seasonal cycle (sine)","value":-141.80253217932537,"feature_value":-0.9709418174260521},{"feature":"seasonal_lag52","label":"Admissions same week last year","value":-84.43082137945842,"feature_value":1018.0},{"feature":"pct_reporting","label":"Hospital reporting percentage","value":-6.122857034993415,"feature_value":78.07}],"permutation_importance":[{"feature":"y_lag0","label":"Admissions last week","value":16596.73471204697},{"feature":"y_lag1","label":"Admissions 2 weeks ago","value":13362.494421828625},{"feature":"y_lag2","label":"Admissions 3 weeks ago","value":5717.854453167113},{"feature":"y_lag3","label":"Admissions 4 weeks ago","value":1943.399309578625},{"feature":"roll_mean_4","label":"4-week rolling average","value":959.9934243381155},{"feature":"woy_cos","label":"Seasonal cycle (cosine)","value":294.10931990741466},{"feature":"seasonal_lag52","label":"Admissions same week last year","value":74.99516415760027},{"feature":"woy_sin","label":"Seasonal cycle (sine)","value":22.405324869342916},{"feature":"pct_reporting","label":"Hospital reporting percentage","value":-0.15907116747641795}],"text":"The largest negative contribution to the 1-week forecast is associated with admissions last week.","note":"These are model associations, not causes."}
+--------------------------------------------------------------------------------
+
+## E8_SCENARIO_FLU
+$ curl.exe -s -i -X POST http://127.0.0.1:8000/api/v1/scenario ...
+HTTP/1.1 200 OK
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+content-length: 2839
+content-type: application/json
+x-request-id: 3608bb5b-2034-4526-bc27-f8cf87c9314e
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+
+{"is_scenario":true,"label":"SCENARIO â€” not a prediction","surge_pct":20.0,"threshold":{"value":10828.25,"source":"default"},"horizons":[{"horizon_weeks":1,"target_week_end_date":"2026-10-10","base":{"point":4222.717112764016,"lower":770.675839598,"upper":5230.0211081079815,"tier":"normal"},"scenario":{"point":5067.260535316819,"lower":924.8110075176,"upper":6276.025329729578,"tier":"normal"}},{"horizon_weeks":2,"target_week_end_date":"2026-10-17","base":{"point":4972.946480577945,"lower":0.0,"upper":6536.032604309165,"tier":"normal"},"scenario":{"point":5967.535776693534,"lower":0.0,"upper":7843.239125170998,"tier":"normal"}},{"horizon_weeks":3,"target_week_end_date":"2026-10-24","base":{"point":1668.364881530513,"lower":0.0,"upper":6889.364881530513,"tier":"normal"},"scenario":{"point":2002.0378578366156,"lower":0.0,"upper":8267.237857836615,"tier":"normal"}},{"horizon_weeks":4,"target_week_end_date":"2026-10-31","base":{"point":285.69249107870377,"lower":0.0,"upper":5506.692491078704,"tier":"normal"},"scenario":{"point":342.8309892944445,"lower":0.0,"upper":6608.030989294444,"tier":"normal"}}],"capacity":{"is_simulated":true,"label":"SIMULATED â€” assumption-based","reference_level":2391.75,"inputs":{"typical_weekly_admissions":100.0,"alos_days":4.5,"staffed_beds":80.0,"patients_per_nurse":4.0},"horizons":[{"horizon_weeks":1,"relative_change":2.118641386146888,"hospital_weekly_admissions":211.8641386146888,"est_occupied_beds":136.19837482372853,"bed_gap":56.19837482372853,"nurses_per_shift":34.04959370593213},{"horizon_weeks":2,"relative_change":2.4950499745765793,"hospital_weekly_admissions":249.50499745765794,"est_occupied_beds":160.39606979420867,"bed_gap":80.39606979420867,"nurses_per_shift":40.09901744855217},{"horizon_weeks":3,"relative_change":0.8370598339444405,"hospital_weekly_admissions":83.70598339444405,"est_occupied_beds":53.810989324999746,"bed_gap":-26.189010675000254,"nurses_per_shift":13.452747331249936},{"horizon_weeks":4,"relative_change":0.14333897325993292,"hospital_weekly_admissions":14.333897325993291,"est_occupied_beds":9.214648280995688,"bed_gap":-70.78535171900431,"nurses_per_shift":2.303662070248922}],"formulae":["relative_change = scenario_point / reference_level","hospital_weekly_admissions = typical_weekly_admissions Ã— relative_change","est_occupied_beds = hospital_weekly_admissions Ã— alos_days / 7","bed_gap = est_occupied_beds âˆ’ staffed_beds","nurses_per_shift = est_occupied_beds / patients_per_nurse"],"message":null},"actions":{"tier":"normal","items":["Maintain routine infection-control surveillance and standard bed tracking.","Review weekly admission trajectory and regional community transmission reports.","Verify baseline respiratory medication and personal protective equipment supplies."],"footer":"Final decisions rest with authorised staff."}}
+--------------------------------------------------------------------------------
+
+## ERROR_422_VALIDATION
+$ curl.exe -s -i http://127.0.0.1:8000/api/v1/observations?disease=flu&jurisdiction=US&from=2024-05-01&to=2024-01-01 ...
+HTTP/1.1 422 Unprocessable Content
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+x-request-id: ae18c1fa-bb47-4255-b4e6-3f47538737b5
+cache-control: no-store
+content-length: 177
+content-type: application/json
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+
+{"error":{"code":"validation_error","message":"Parameter 'from' must be less than or equal to 'to'.","fields":["from","to"],"request_id":"ae18c1fa-bb47-4255-b4e6-3f47538737b5"}}
+--------------------------------------------------------------------------------
+
+## ERROR_413_PAYLOAD_TOO_LARGE
+$ curl.exe -s -i -X POST http://127.0.0.1:8000/api/v1/scenario ...
+HTTP/1.1 413 Content Too Large
+date: Tue, 13 Oct 2026 17:35:19 GMT
+server: uvicorn
+x-request-id: f80cec66-17e0-4f0b-a5fa-0dcf25fd175d
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+x-content-type-options: nosniff
+referrer-policy: no-referrer
+x-frame-options: DENY
+permissions-policy: geolocation=(), camera=(), microphone=()
+cache-control: no-store
+content-length: 163
+content-type: application/json
+
+{"error":{"code":"payload_too_large","message":"Request body exceeds maximum size of 8192 bytes.","fields":[],"request_id":"f80cec66-17e0-4f0b-a5fa-0dcf25fd175d"}}
+--------------------------------------------------------------------------------

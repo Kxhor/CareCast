@@ -1,0 +1,147 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- <project-root>\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: <project-root>
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1, platformdirs-4.13.0
+collecting ... collected 99 items
+
+tests/api/test_api_endpoints.py::TestHealthE1::test_health_ok PASSED     [  1%]
+tests/api/test_api_endpoints.py::TestMetaE2AT28::test_meta_contract PASSED [  2%]
+tests/api/test_api_endpoints.py::TestSummaryE3AT30::test_summary_success PASSED [  3%]
+tests/api/test_api_endpoints.py::TestSummaryE3AT30::test_summary_threshold_override PASSED [  4%]
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_ascending PASSED [  5%]
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_date_filters PASSED [  6%]
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_from_greater_than_to_returns_422 PASSED [  7%]
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_empty_range_returns_200 PASSED [  8%]
+tests/api/test_api_endpoints.py::TestForecastE5AT09::test_forecast_horizons_structure PASSED [  9%]
+tests/api/test_api_endpoints.py::TestEvaluationE6AT10::test_evaluation_structure PASSED [ 10%]
+tests/api/test_api_endpoints.py::TestExplainE7::test_explain_linear_model PASSED [ 11%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_valid_custom_capacity PASSED [ 12%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_default_capacity_when_null PASSED [ 13%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-51.0] PASSED [ 14%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[101.0] PASSED [ 15%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-100.0] PASSED [ 16%]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[500.0] PASSED [ 17%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[abc] PASSED [ 18%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-5.0] PASSED [ 19%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[1e10] PASSED [ 20%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[inf] PASSED [ 21%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[nan] PASSED [ 22%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-inf] PASSED [ 23%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[abc] PASSED [ 24%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[-1.0] PASSED [ 25%]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[1e11] PASSED [ 26%]
+tests/api/test_api_security.py::TestSecurityHeadersAT33::test_security_headers_present PASSED [ 27%]
+tests/api/test_api_security.py::TestSecurityHeadersAT33::test_hsts_header_when_enabled PASSED [ 28%]
+tests/api/test_api_security.py::TestNoCorsAndNoCookiesAT37::test_no_cors_and_no_cookies PASSED [ 29%]
+tests/api/test_api_security.py::TestForcedServerErrorAT34::test_forced_error_envelope PASSED [ 30%]
+tests/api/test_api_security.py::TestRateLimiterAT35::test_rate_limit_exceeded PASSED [ 31%]
+tests/api/test_api_security.py::TestBodySizeLimit::test_large_body_returns_413 PASSED [ 32%]
+tests/api/test_api_security.py::TestUnknownFieldsForbidden::test_extra_field_rejected PASSED [ 33%]
+tests/api/test_api_security.py::TestReadOnlyDBConnectionFailsWrites::test_write_attempt_raises_error PASSED [ 34%]
+tests/api/test_api_security.py::TestDocsDisabledInProd::test_docs_404_in_prod PASSED [ 35%]
+tests/contract/test_openapi_contract.py::test_openapi_contract_snapshot_matches PASSED [ 36%]
+tests/unit/test_db.py::test_connect_rw_creates_and_writes PASSED         [ 37%]
+tests/unit/test_db.py::test_connect_ro_enforces_read_only PASSED         [ 38%]
+tests/unit/test_db.py::test_connect_ro_missing_file_raises PASSED        [ 39%]
+tests/unit/test_db.py::test_migration_runner_skeleton PASSED             [ 40%]
+tests/unit/test_evaluate.py::test_at_11_chronological_splits_ordering PASSED [ 41%]
+tests/unit/test_evaluate.py::test_at_13_metrics_hand_fixture PASSED      [ 42%]
+tests/unit/test_evaluate.py::test_at_14_beats_persistence_verdict_both_branches PASSED [ 43%]
+tests/unit/test_evaluate.py::test_empirical_quantiles_and_coverage PASSED [ 44%]
+tests/unit/test_explain.py::test_at_18_additive_identity PASSED          [ 45%]
+tests/unit/test_explain.py::test_permutation_importance_validation_block PASSED [ 46%]
+tests/unit/test_explain.py::test_at_19_non_causal_language PASSED        [ 47%]
+tests/unit/test_features.py::test_compute_woy_cyclical PASSED            [ 48%]
+tests/unit/test_features.py::test_build_feature_row_lags PASSED          [ 49%]
+tests/unit/test_features.py::test_seasonal_lag52_detection PASSED        [ 50%]
+tests/unit/test_features.py::test_at_08_leakage_perturbation PASSED      [ 51%]
+tests/unit/test_ingest.py::test_at_01_ingest_idempotency PASSED          [ 52%]
+tests/unit/test_ingest.py::test_at_02_missing_column_aborts PASSED       [ 53%]
+tests/unit/test_ingest.py::test_at_03_defects_detected_and_logged PASSED [ 54%]
+tests/unit/test_ingest.py::test_at_04_raw_file_sha256_recorded PASSED    [ 55%]
+tests/unit/test_models.py::test_at_12_persistence_hand_fixture PASSED    [ 56%]
+tests/unit/test_models.py::test_at_12_seasonal_naive_hand_fixture PASSED [ 57%]
+tests/unit/test_models.py::test_linear_lag_negative_clipping PASSED      [ 58%]
+tests/unit/test_models.py::test_hgb_lag_deterministic_and_clipping PASSED [ 59%]
+tests/unit/test_models.py::test_get_model_factory PASSED                 [ 60%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_point_above_threshold_is_elevated PASSED [ 61%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_point_equals_threshold_is_watch_when_upper_exceeds PASSED [ 62%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_point_below_threshold_and_upper_above_is_watch PASSED [ 63%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_upper_equals_threshold_is_normal PASSED [ 64%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_upper_below_threshold_is_normal PASSED [ 65%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_point_and_upper_equal_threshold_is_normal PASSED [ 66%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_boundary_precision[100.001-80.0-120.0-100.0-elevated] PASSED [ 67%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_boundary_precision[100.0-80.0-100.001-100.0-watch] PASSED [ 68%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_boundary_precision[99.999-80.0-100.0-100.0-normal] PASSED [ 69%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_boundary_precision[0.0-0.0-0.0-0.0-normal] PASSED [ 70%]
+tests/unit/test_planning.py::TestTierBoundaryTableAT15::test_boundary_precision[10.0-5.0-15.0-0.0-elevated] PASSED [ 71%]
+tests/unit/test_planning.py::TestScenarioScalingAT21::test_zero_surge_equals_base PASSED [ 72%]
+tests/unit/test_planning.py::TestScenarioScalingAT21::test_positive_surge PASSED [ 73%]
+tests/unit/test_planning.py::TestScenarioScalingAT21::test_negative_surge PASSED [ 74%]
+tests/unit/test_planning.py::TestScenarioScalingAT21::test_non_negative_guarantee PASSED [ 75%]
+tests/unit/test_planning.py::TestCapacityIllustrationAT24::test_worked_example PASSED [ 76%]
+tests/unit/test_planning.py::TestCapacityIllustrationAT24::test_reference_level_zero_handled_safely PASSED [ 77%]
+tests/unit/test_planning.py::TestActionChecklistAT26::test_deterministic_checklists PASSED [ 78%]
+tests/unit/test_planning.py::TestActionChecklistAT26::test_invalid_tier_defaults_or_raises PASSED [ 79%]
+tests/unit/test_planning.py::TestExplanationNonCausalLanguageAT19::test_explanation_text_uses_association_not_cause PASSED [ 80%]
+tests/unit/test_quality.py::test_quality_checks_gap_detection PASSED     [ 81%]
+tests/unit/test_schema.py::test_migrations_fresh_db PASSED               [ 82%]
+tests/unit/test_schema.py::test_migrations_idempotency PASSED            [ 83%]
+tests/unit/test_schema_constraints.py::test_at_45_privacy_schema_check PASSED [ 84%]
+tests/unit/test_schema_constraints.py::test_negative_constraint_non_saturday_date PASSED [ 85%]
+tests/unit/test_schema_constraints.py::test_negative_constraint_negative_admissions PASSED [ 86%]
+tests/unit/test_schema_constraints.py::test_negative_constraint_train_valid_test_overlap PASSED [ 87%]
+tests/unit/test_settings.py::test_default_settings PASSED                [ 88%]
+tests/unit/test_settings.py::test_custom_settings_via_env PASSED         [ 89%]
+tests/unit/test_settings.py::test_docs_disabled_in_prod PASSED           [ 90%]
+tests/unit/test_settings.py::test_reject_invalid_env PASSED              [ 91%]
+tests/unit/test_settings.py::test_reject_invalid_rate_limit PASSED       [ 92%]
+tests/unit/test_settings.py::test_reject_invalid_log_level PASSED        [ 93%]
+tests/unit/test_settings.py::test_reject_db_path_inside_web PASSED       [ 94%]
+tests/unit/test_settings.py::test_load_toml_missing_file PASSED          [ 95%]
+tests/unit/test_smoke.py::test_import_carecast PASSED                    [ 96%]
+tests/unit/test_smoke.py::test_import_submodules PASSED                  [ 97%]
+tests/unit/test_sql_guard.py::test_at_05_sql_guard_no_dynamic_queries PASSED [ 98%]
+tests/unit/test_storage.py::test_at_10_and_t7_t11_storage PASSED         [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  <project-root>\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_from_greater_than_to_returns_422
+  <project-root>\.venv\Lib\site-packages\fastapi\telemetry\_api.py:244: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    return function(**arguments)
+
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-51.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[101.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-100.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[500.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[abc]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[abc]
+tests/api/test_api_security.py::TestUnknownFieldsForbidden::test_extra_field_rejected
+  <project-root>\.venv\Lib\site-packages\starlette\_exception_handler.py:59: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-5.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[1e10]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[inf]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[nan]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-inf]
+  <project-root>\carecast\api\routes.py:396: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    validate_threshold(threshold)
+
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[-1.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[1e11]
+  <project-root>\carecast\api\routes.py:722: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    validate_threshold(threshold)
+
+tests/api/test_api_security.py::TestBodySizeLimit::test_large_body_returns_413
+  <project-root>\.venv\Lib\site-packages\starlette\middleware\base.py:197: StarletteDeprecationWarning: 'HTTP_413_REQUEST_ENTITY_TOO_LARGE' is deprecated. Use 'HTTP_413_CONTENT_TOO_LARGE' instead.
+    response = await self.dispatch_func(request, call_next)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================== 99 passed, 17 warnings in 10.14s =======================

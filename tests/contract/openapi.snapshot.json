@@ -1,0 +1,2118 @@
+{
+  "components": {
+    "schemas": {
+      "ActionsBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "footer": {
+            "title": "Footer",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tier",
+          "items",
+          "footer"
+        ],
+        "title": "ActionsBlock",
+        "type": "object"
+      },
+      "AppMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "env": {
+            "title": "Env",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "env"
+        ],
+        "title": "AppMeta",
+        "type": "object"
+      },
+      "BacktestPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "actual": {
+            "title": "Actual",
+            "type": "number"
+          },
+          "predicted_persistence": {
+            "title": "Predicted Persistence",
+            "type": "number"
+          },
+          "predicted_selected": {
+            "title": "Predicted Selected",
+            "type": "number"
+          },
+          "target_week_end_date": {
+            "title": "Target Week End Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "target_week_end_date",
+          "actual",
+          "predicted_selected",
+          "predicted_persistence"
+        ],
+        "title": "BacktestPoint",
+        "type": "object"
+      },
+      "BacktestSeries": {
+        "additionalProperties": false,
+        "properties": {
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/BacktestPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "points"
+        ],
+        "title": "BacktestSeries",
+        "type": "object"
+      },
+      "CapacityBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "formulae": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Formulae",
+            "type": "array"
+          },
+          "horizons": {
+            "items": {
+              "$ref": "#/components/schemas/CapacityHorizonItem"
+            },
+            "title": "Horizons",
+            "type": "array"
+          },
+          "inputs": {
+            "$ref": "#/components/schemas/CapacityInputs"
+          },
+          "is_simulated": {
+            "title": "Is Simulated",
+            "type": "boolean"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "reference_level": {
+            "title": "Reference Level",
+            "type": "number"
+          }
+        },
+        "required": [
+          "is_simulated",
+          "label",
+          "reference_level",
+          "inputs",
+          "horizons",
+          "formulae"
+        ],
+        "title": "CapacityBlock",
+        "type": "object"
+      },
+      "CapacityDefaults": {
+        "additionalProperties": false,
+        "properties": {
+          "alos_days": {
+            "title": "Alos Days",
+            "type": "number"
+          },
+          "is_simulated": {
+            "title": "Is Simulated",
+            "type": "boolean"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "patients_per_nurse": {
+            "title": "Patients Per Nurse",
+            "type": "number"
+          },
+          "staffed_beds": {
+            "title": "Staffed Beds",
+            "type": "number"
+          },
+          "typical_weekly_admissions": {
+            "title": "Typical Weekly Admissions",
+            "type": "number"
+          }
+        },
+        "required": [
+          "typical_weekly_admissions",
+          "alos_days",
+          "staffed_beds",
+          "patients_per_nurse",
+          "is_simulated",
+          "note"
+        ],
+        "title": "CapacityDefaults",
+        "type": "object"
+      },
+      "CapacityHorizonItem": {
+        "additionalProperties": false,
+        "properties": {
+          "bed_gap": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bed Gap"
+          },
+          "est_occupied_beds": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Est Occupied Beds"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "hospital_weekly_admissions": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hospital Weekly Admissions"
+          },
+          "nurses_per_shift": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nurses Per Shift"
+          },
+          "relative_change": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relative Change"
+          }
+        },
+        "required": [
+          "horizon_weeks"
+        ],
+        "title": "CapacityHorizonItem",
+        "type": "object"
+      },
+      "CapacityInputs": {
+        "additionalProperties": false,
+        "properties": {
+          "alos_days": {
+            "maximum": 60.0,
+            "minimum": 0.5,
+            "title": "Alos Days",
+            "type": "number"
+          },
+          "patients_per_nurse": {
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Patients Per Nurse",
+            "type": "number"
+          },
+          "staffed_beds": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 100000.0,
+            "title": "Staffed Beds",
+            "type": "number"
+          },
+          "typical_weekly_admissions": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 1000000.0,
+            "title": "Typical Weekly Admissions",
+            "type": "number"
+          }
+        },
+        "required": [
+          "typical_weekly_admissions",
+          "alos_days",
+          "staffed_beds",
+          "patients_per_nurse"
+        ],
+        "title": "CapacityInputs",
+        "type": "object"
+      },
+      "DefaultsMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "capacity": {
+            "$ref": "#/components/schemas/CapacityDefaults"
+          },
+          "interval_level": {
+            "title": "Interval Level",
+            "type": "number"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/ScenarioDefaults"
+          },
+          "threshold_method": {
+            "title": "Threshold Method",
+            "type": "string"
+          }
+        },
+        "required": [
+          "threshold_method",
+          "interval_level",
+          "scenario",
+          "capacity"
+        ],
+        "title": "DefaultsMeta",
+        "type": "object"
+      },
+      "DiseaseMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "required": [
+          "code",
+          "label",
+          "available"
+        ],
+        "title": "DiseaseMeta",
+        "type": "object"
+      },
+      "EvaluationHeadline": {
+        "additionalProperties": false,
+        "properties": {
+          "beats_persistence": {
+            "title": "Beats Persistence",
+            "type": "boolean"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "persistence_test_mae": {
+            "title": "Persistence Test Mae",
+            "type": "number"
+          },
+          "selected_model": {
+            "title": "Selected Model",
+            "type": "string"
+          },
+          "test_interval_coverage": {
+            "title": "Test Interval Coverage",
+            "type": "number"
+          },
+          "test_mae": {
+            "title": "Test Mae",
+            "type": "number"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "selected_model",
+          "test_mae",
+          "persistence_test_mae",
+          "beats_persistence",
+          "test_interval_coverage"
+        ],
+        "title": "EvaluationHeadline",
+        "type": "object"
+      },
+      "EvaluationResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "backtest": {
+            "$ref": "#/components/schemas/BacktestSeries"
+          },
+          "metrics": {
+            "items": {
+              "$ref": "#/components/schemas/MetricItem"
+            },
+            "title": "Metrics",
+            "type": "array"
+          },
+          "run": {
+            "$ref": "#/components/schemas/RunSplits"
+          },
+          "selected": {
+            "items": {
+              "$ref": "#/components/schemas/SelectedModelItem"
+            },
+            "title": "Selected",
+            "type": "array"
+          },
+          "verdicts": {
+            "items": {
+              "$ref": "#/components/schemas/VerdictItem"
+            },
+            "title": "Verdicts",
+            "type": "array"
+          }
+        },
+        "required": [
+          "run",
+          "metrics",
+          "selected",
+          "verdicts",
+          "backtest"
+        ],
+        "title": "EvaluationResponse",
+        "type": "object"
+      },
+      "ExplainResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "base_value": {
+            "title": "Base Value",
+            "type": "number"
+          },
+          "contributions": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/FeatureContributionItem"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contributions"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "permutation_importance": {
+            "items": {
+              "$ref": "#/components/schemas/PermutationImportanceItem"
+            },
+            "title": "Permutation Importance",
+            "type": "array"
+          },
+          "prediction": {
+            "title": "Prediction",
+            "type": "number"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "model_name",
+          "base_value",
+          "prediction",
+          "permutation_importance",
+          "text",
+          "note"
+        ],
+        "title": "ExplainResponse",
+        "type": "object"
+      },
+      "FeatureContributionItem": {
+        "additionalProperties": false,
+        "properties": {
+          "feature": {
+            "title": "Feature",
+            "type": "string"
+          },
+          "feature_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Feature Value"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "feature",
+          "label",
+          "value"
+        ],
+        "title": "FeatureContributionItem",
+        "type": "object"
+      },
+      "ForecastHorizonItem": {
+        "additionalProperties": false,
+        "properties": {
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "lower": {
+            "title": "Lower",
+            "type": "number"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "origin_week_end_date": {
+            "title": "Origin Week End Date",
+            "type": "string"
+          },
+          "point": {
+            "title": "Point",
+            "type": "number"
+          },
+          "target_week_end_date": {
+            "title": "Target Week End Date",
+            "type": "string"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          },
+          "upper": {
+            "title": "Upper",
+            "type": "number"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "origin_week_end_date",
+          "target_week_end_date",
+          "point",
+          "lower",
+          "upper",
+          "model_name",
+          "tier"
+        ],
+        "title": "ForecastHorizonItem",
+        "type": "object"
+      },
+      "ForecastResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "$ref": "#/components/schemas/ActionsBlock"
+          },
+          "disclaimer": {
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "horizons": {
+            "items": {
+              "$ref": "#/components/schemas/ForecastHorizonItem"
+            },
+            "title": "Horizons",
+            "type": "array"
+          },
+          "interval_level": {
+            "title": "Interval Level",
+            "type": "number"
+          },
+          "run": {
+            "$ref": "#/components/schemas/RunMeta"
+          },
+          "threshold": {
+            "$ref": "#/components/schemas/ForecastThresholdInfo"
+          }
+        },
+        "required": [
+          "run",
+          "interval_level",
+          "threshold",
+          "horizons",
+          "actions",
+          "disclaimer"
+        ],
+        "title": "ForecastResponse",
+        "type": "object"
+      },
+      "ForecastThresholdInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "method": {
+            "title": "Method",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "value",
+          "source",
+          "method"
+        ],
+        "title": "ForecastThresholdInfo",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "HealthResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "data_as_of": {
+            "title": "Data As Of",
+            "type": "string"
+          },
+          "db_ok": {
+            "title": "Db Ok",
+            "type": "boolean"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "db_ok",
+          "data_as_of",
+          "version"
+        ],
+        "title": "HealthResponse",
+        "type": "object"
+      },
+      "HorizonBand": {
+        "additionalProperties": false,
+        "properties": {
+          "lower": {
+            "title": "Lower",
+            "type": "number"
+          },
+          "point": {
+            "title": "Point",
+            "type": "number"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          },
+          "upper": {
+            "title": "Upper",
+            "type": "number"
+          }
+        },
+        "required": [
+          "point",
+          "lower",
+          "upper",
+          "tier"
+        ],
+        "title": "HorizonBand",
+        "type": "object"
+      },
+      "JurisdictionMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "level": {
+            "title": "Level",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "name",
+          "level"
+        ],
+        "title": "JurisdictionMeta",
+        "type": "object"
+      },
+      "LatestObservation": {
+        "additionalProperties": false,
+        "properties": {
+          "change_pct_vs_prior_week": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Change Pct Vs Prior Week"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "week_end_date": {
+            "title": "Week End Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "week_end_date",
+          "value"
+        ],
+        "title": "LatestObservation",
+        "type": "object"
+      },
+      "LimitationMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ],
+        "title": "LimitationMeta",
+        "type": "object"
+      },
+      "MetaResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "app": {
+            "$ref": "#/components/schemas/AppMeta"
+          },
+          "data_as_of": {
+            "title": "Data As Of",
+            "type": "string"
+          },
+          "defaults": {
+            "$ref": "#/components/schemas/DefaultsMeta"
+          },
+          "disclaimer": {
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "diseases": {
+            "items": {
+              "$ref": "#/components/schemas/DiseaseMeta"
+            },
+            "title": "Diseases",
+            "type": "array"
+          },
+          "horizons": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Horizons",
+            "type": "array"
+          },
+          "jurisdictions": {
+            "items": {
+              "$ref": "#/components/schemas/JurisdictionMeta"
+            },
+            "title": "Jurisdictions",
+            "type": "array"
+          },
+          "limitations": {
+            "items": {
+              "$ref": "#/components/schemas/LimitationMeta"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
+          "quality_issues": {
+            "items": {
+              "$ref": "#/components/schemas/QualityIssueMeta"
+            },
+            "title": "Quality Issues",
+            "type": "array"
+          },
+          "source": {
+            "$ref": "#/components/schemas/SourceMeta"
+          },
+          "target_kind": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Target Kind",
+            "type": "object"
+          }
+        },
+        "required": [
+          "app",
+          "data_as_of",
+          "source",
+          "diseases",
+          "jurisdictions",
+          "horizons",
+          "target_kind",
+          "defaults",
+          "limitations",
+          "quality_issues",
+          "disclaimer"
+        ],
+        "title": "MetaResponse",
+        "type": "object"
+      },
+      "MetricItem": {
+        "additionalProperties": false,
+        "properties": {
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "is_selected": {
+            "title": "Is Selected",
+            "type": "boolean"
+          },
+          "mae": {
+            "title": "Mae",
+            "type": "number"
+          },
+          "mae_vs_persistence": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mae Vs Persistence"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "n_eval": {
+            "title": "N Eval",
+            "type": "integer"
+          },
+          "rmse": {
+            "title": "Rmse",
+            "type": "number"
+          },
+          "split": {
+            "title": "Split",
+            "type": "string"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "model_name",
+          "split",
+          "mae",
+          "rmse",
+          "n_eval",
+          "is_selected"
+        ],
+        "title": "MetricItem",
+        "type": "object"
+      },
+      "NextWeekForecast": {
+        "additionalProperties": false,
+        "properties": {
+          "lower": {
+            "title": "Lower",
+            "type": "number"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "point": {
+            "title": "Point",
+            "type": "number"
+          },
+          "target_week_end_date": {
+            "title": "Target Week End Date",
+            "type": "string"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          },
+          "upper": {
+            "title": "Upper",
+            "type": "number"
+          }
+        },
+        "required": [
+          "target_week_end_date",
+          "point",
+          "lower",
+          "upper",
+          "tier",
+          "model_name"
+        ],
+        "title": "NextWeekForecast",
+        "type": "object"
+      },
+      "ObservationPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "is_imputed": {
+            "title": "Is Imputed",
+            "type": "boolean"
+          },
+          "pct_reporting": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pct Reporting"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "week_end_date": {
+            "title": "Week End Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "week_end_date",
+          "value",
+          "is_imputed"
+        ],
+        "title": "ObservationPoint",
+        "type": "object"
+      },
+      "ObservationsResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          },
+          "disease": {
+            "title": "Disease",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/ObservationPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          },
+          "target_kind": {
+            "title": "Target Kind",
+            "type": "string"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "disease",
+          "jurisdiction",
+          "target_kind",
+          "unit",
+          "count",
+          "points"
+        ],
+        "title": "ObservationsResponse",
+        "type": "object"
+      },
+      "PermutationImportanceItem": {
+        "additionalProperties": false,
+        "properties": {
+          "feature": {
+            "title": "Feature",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "feature",
+          "label",
+          "value"
+        ],
+        "title": "PermutationImportanceItem",
+        "type": "object"
+      },
+      "QualityIssueMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "check_name": {
+            "title": "Check Name",
+            "type": "string"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "severity": {
+            "title": "Severity",
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_name",
+          "severity",
+          "detail"
+        ],
+        "title": "QualityIssueMeta",
+        "type": "object"
+      },
+      "RecentPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "week_end_date": {
+            "title": "Week End Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "week_end_date",
+          "value"
+        ],
+        "title": "RecentPoint",
+        "type": "object"
+      },
+      "RingGauge": {
+        "additionalProperties": false,
+        "properties": {
+          "forecast_pct_of_threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Forecast Pct Of Threshold"
+          },
+          "lower_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lower Pct"
+          },
+          "upper_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upper Pct"
+          }
+        },
+        "title": "RingGauge",
+        "type": "object"
+      },
+      "RunMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "data_end_date": {
+            "title": "Data End Date",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "target_kind": {
+            "title": "Target Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "data_end_date",
+          "target_kind"
+        ],
+        "title": "RunMeta",
+        "type": "object"
+      },
+      "RunSplits": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "n_test": {
+            "title": "N Test",
+            "type": "integer"
+          },
+          "n_train": {
+            "title": "N Train",
+            "type": "integer"
+          },
+          "n_valid": {
+            "title": "N Valid",
+            "type": "integer"
+          },
+          "test": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Test",
+            "type": "array"
+          },
+          "train": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Train",
+            "type": "array"
+          },
+          "validation": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Validation",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "train",
+          "validation",
+          "test",
+          "n_train",
+          "n_valid",
+          "n_test"
+        ],
+        "title": "RunSplits",
+        "type": "object"
+      },
+      "ScenarioDefaults": {
+        "additionalProperties": false,
+        "properties": {
+          "max": {
+            "title": "Max",
+            "type": "number"
+          },
+          "min": {
+            "title": "Min",
+            "type": "number"
+          },
+          "presets": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Presets",
+            "type": "array"
+          }
+        },
+        "required": [
+          "min",
+          "max",
+          "presets"
+        ],
+        "title": "ScenarioDefaults",
+        "type": "object"
+      },
+      "ScenarioHorizonItem": {
+        "additionalProperties": false,
+        "properties": {
+          "base": {
+            "$ref": "#/components/schemas/HorizonBand"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/HorizonBand"
+          },
+          "target_week_end_date": {
+            "title": "Target Week End Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "target_week_end_date",
+          "base",
+          "scenario"
+        ],
+        "title": "ScenarioHorizonItem",
+        "type": "object"
+      },
+      "ScenarioRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "capacity": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CapacityInputs"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "disease": {
+            "default": "flu",
+            "title": "Disease",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "default": "US",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "surge_pct": {
+            "maximum": 100.0,
+            "minimum": -50.0,
+            "title": "Surge Pct",
+            "type": "number"
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "maximum": 1000000000.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          }
+        },
+        "required": [
+          "surge_pct"
+        ],
+        "title": "ScenarioRequest",
+        "type": "object"
+      },
+      "ScenarioResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "$ref": "#/components/schemas/ActionsBlock"
+          },
+          "capacity": {
+            "$ref": "#/components/schemas/CapacityBlock"
+          },
+          "horizons": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioHorizonItem"
+            },
+            "title": "Horizons",
+            "type": "array"
+          },
+          "is_scenario": {
+            "title": "Is Scenario",
+            "type": "boolean"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "surge_pct": {
+            "title": "Surge Pct",
+            "type": "number"
+          },
+          "threshold": {
+            "$ref": "#/components/schemas/ThresholdInfo"
+          }
+        },
+        "required": [
+          "is_scenario",
+          "label",
+          "surge_pct",
+          "threshold",
+          "horizons",
+          "capacity",
+          "actions"
+        ],
+        "title": "ScenarioResponse",
+        "type": "object"
+      },
+      "SelectedModelItem": {
+        "additionalProperties": false,
+        "properties": {
+          "beats_persistence": {
+            "title": "Beats Persistence",
+            "type": "boolean"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "test_interval_coverage": {
+            "title": "Test Interval Coverage",
+            "type": "number"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "model_name",
+          "beats_persistence",
+          "test_interval_coverage"
+        ],
+        "title": "SelectedModelItem",
+        "type": "object"
+      },
+      "SelectedSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "$ref": "#/components/schemas/ActionsBlock"
+          },
+          "disease": {
+            "title": "Disease",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "latest": {
+            "$ref": "#/components/schemas/LatestObservation"
+          },
+          "next_week": {
+            "$ref": "#/components/schemas/NextWeekForecast"
+          },
+          "recent": {
+            "items": {
+              "$ref": "#/components/schemas/RecentPoint"
+            },
+            "title": "Recent",
+            "type": "array"
+          },
+          "ring": {
+            "$ref": "#/components/schemas/RingGauge"
+          },
+          "target_kind": {
+            "title": "Target Kind",
+            "type": "string"
+          },
+          "threshold": {
+            "$ref": "#/components/schemas/ThresholdInfo"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "disease",
+          "jurisdiction",
+          "target_kind",
+          "unit",
+          "latest",
+          "threshold",
+          "next_week",
+          "ring",
+          "recent",
+          "actions"
+        ],
+        "title": "SelectedSummary",
+        "type": "object"
+      },
+      "SourceMeta": {
+        "additionalProperties": false,
+        "properties": {
+          "dataset_id": {
+            "title": "Dataset Id",
+            "type": "string"
+          },
+          "file_sha256": {
+            "title": "File Sha256",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "publisher": {
+            "title": "Publisher",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "publisher",
+          "dataset_id",
+          "url",
+          "retrieved_at",
+          "file_sha256"
+        ],
+        "title": "SourceMeta",
+        "type": "object"
+      },
+      "SummaryResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "data_as_of": {
+            "title": "Data As Of",
+            "type": "string"
+          },
+          "evaluation_headline": {
+            "$ref": "#/components/schemas/EvaluationHeadline"
+          },
+          "selected": {
+            "$ref": "#/components/schemas/SelectedSummary"
+          },
+          "stale": {
+            "title": "Stale",
+            "type": "boolean"
+          },
+          "watchlist": {
+            "items": {
+              "$ref": "#/components/schemas/WatchlistItem"
+            },
+            "title": "Watchlist",
+            "type": "array"
+          }
+        },
+        "required": [
+          "data_as_of",
+          "stale",
+          "selected",
+          "watchlist",
+          "evaluation_headline"
+        ],
+        "title": "SummaryResponse",
+        "type": "object"
+      },
+      "ThresholdInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "value",
+          "source"
+        ],
+        "title": "ThresholdInfo",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "VerdictItem": {
+        "additionalProperties": false,
+        "properties": {
+          "beats_persistence": {
+            "title": "Beats Persistence",
+            "type": "boolean"
+          },
+          "horizon_weeks": {
+            "title": "Horizon Weeks",
+            "type": "integer"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "horizon_weeks",
+          "beats_persistence",
+          "text"
+        ],
+        "title": "VerdictItem",
+        "type": "object"
+      },
+      "WatchlistItem": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "disease": {
+            "title": "Disease",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "latest_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Value"
+          },
+          "next_week_point": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Week Point"
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          }
+        },
+        "required": [
+          "disease",
+          "label",
+          "available"
+        ],
+        "title": "WatchlistItem",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "CareCast",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/evaluation": {
+      "get": {
+        "operationId": "get_evaluation_api_v1_evaluation_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "disease",
+            "required": false,
+            "schema": {
+              "default": "flu",
+              "title": "Disease",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "jurisdiction",
+            "required": false,
+            "schema": {
+              "default": "US",
+              "title": "Jurisdiction",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "horizon",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "maximum": 4,
+              "minimum": 1,
+              "title": "Horizon",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvaluationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Evaluation"
+      }
+    },
+    "/api/v1/explain": {
+      "get": {
+        "operationId": "get_explain_api_v1_explain_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "disease",
+            "required": false,
+            "schema": {
+              "default": "flu",
+              "title": "Disease",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "jurisdiction",
+            "required": false,
+            "schema": {
+              "default": "US",
+              "title": "Jurisdiction",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "horizon",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "maximum": 4,
+              "minimum": 1,
+              "title": "Horizon",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExplainResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Explain"
+      }
+    },
+    "/api/v1/forecast": {
+      "get": {
+        "operationId": "get_forecast_api_v1_forecast_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "disease",
+            "required": false,
+            "schema": {
+              "default": "flu",
+              "title": "Disease",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "jurisdiction",
+            "required": false,
+            "schema": {
+              "default": "US",
+              "title": "Jurisdiction",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Threshold"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Forecast"
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "get_health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Health"
+      }
+    },
+    "/api/v1/meta": {
+      "get": {
+        "operationId": "get_meta_api_v1_meta_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetaResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Meta"
+      }
+    },
+    "/api/v1/observations": {
+      "get": {
+        "operationId": "get_observations_api_v1_observations_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "disease",
+            "required": false,
+            "schema": {
+              "default": "flu",
+              "title": "Disease",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "jurisdiction",
+            "required": false,
+            "schema": {
+              "default": "US",
+              "title": "Jurisdiction",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "From"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "To"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservationsResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Observations"
+      }
+    },
+    "/api/v1/scenario": {
+      "post": {
+        "operationId": "post_scenario_api_v1_scenario_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScenarioRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScenarioResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Scenario"
+      }
+    },
+    "/api/v1/summary": {
+      "get": {
+        "operationId": "get_summary_api_v1_summary_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "disease",
+            "required": false,
+            "schema": {
+              "default": "flu",
+              "title": "Disease",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "jurisdiction",
+            "required": false,
+            "schema": {
+              "default": "US",
+              "title": "Jurisdiction",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Threshold"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummaryResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Summary"
+      }
+    }
+  }
+}
