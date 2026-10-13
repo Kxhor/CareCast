@@ -31,3 +31,10 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+
+# Local artifacts, installers, reference assets, and backup directories
+GeminiSetup.exe
+Reference_Ui.jpg
+logs_utf16_bak/
+Issues/
+

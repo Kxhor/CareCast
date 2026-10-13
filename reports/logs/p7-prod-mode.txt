@@ -1,0 +1,12 @@
+[PASS] /docs returned 404 Not Found
+[PASS] /redoc returned 404 Not Found
+[PASS] /openapi.json returned 404 Not Found
+[PASS] /api/v1/health returned 200: {"status":"ok","db_ok":true,"data_as_of":"2026-10-03","version":"0.1.0"}
+[PASS] No Access-Control-* headers present (CORS middleware strictly absent)
+[PASS] No Set-Cookie header present (zero cookies, fully stateless)
+[PASS] Security header 'X-Content-Type-Options': nosniff
+[PASS] Security header 'X-Frame-Options': DENY
+[PASS] Security header 'Referrer-Policy': no-referrer
+[PASS] Security header 'Permissions-Policy': geolocation=(), camera=(), microphone=()
+[PASS] Security header 'Content-Security-Policy': default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+[N/A] Security header 'Strict-Transport-Security': N/A for local HTTP deployment (enabled via CARECAST_HSTS=1 when behind TLS proxy)

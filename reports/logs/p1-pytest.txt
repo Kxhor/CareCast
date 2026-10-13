@@ -1,7 +1,7 @@
 ============================= test session starts ==============================
-platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0 -- /Users/thanujaa/Desktop/CareCast/.venv/bin/python
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0 -- <project-root>/Desktop/CareCast/.venv/bin/python
 cachedir: .pytest_cache
-rootdir: /Users/thanujaa/Desktop/CareCast
+rootdir: <project-root>/Desktop/CareCast
 configfile: pyproject.toml
 testpaths: tests
 plugins: platformdirs-4.13.0, anyio-4.15.1

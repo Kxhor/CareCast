@@ -40,7 +40,7 @@ def connect_ro(db_path: Path | str = "data/carecast.db") -> sqlite3.Connection:
         raise FileNotFoundError(f"Database file does not exist: {path}")
     
     uri = f"file:{path.as_posix()}?mode=ro"
-    conn = sqlite3.connect(uri, uri=True)
+    conn = sqlite3.connect(uri, uri=True, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA query_only = ON;")
     conn.execute("PRAGMA foreign_keys = ON;")

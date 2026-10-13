@@ -1,0 +1,40 @@
+﻿........................................................................ [ 72%]
+............................                                             [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  /workspace\Downloads\CareCast\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/api/test_api_endpoints.py::TestObservationsE4AT06::test_observations_from_greater_than_to_returns_422
+  /workspace\Downloads\CareCast\.venv\Lib\site-packages\fastapi\telemetry\_api.py:244: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    return function(**arguments)
+
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-51.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[101.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[-100.0]
+tests/api/test_api_endpoints.py::TestScenarioE8AT22AT25::test_scenario_invalid_surge_pct_returns_422[500.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[abc]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[abc]
+tests/api/test_api_security.py::TestUnknownFieldsForbidden::test_extra_field_rejected
+  /workspace\Downloads\CareCast\.venv\Lib\site-packages\starlette\_exception_handler.py:59: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-5.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[1e10]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[inf]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[nan]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_summary_bad_threshold[-inf]
+  /workspace\Downloads\CareCast\carecast\api\routes.py:396: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    validate_threshold(threshold)
+
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[-1.0]
+tests/api/test_api_endpoints.py::TestThresholdInputSanityAT16::test_forecast_bad_threshold[1e11]
+  /workspace\Downloads\CareCast\carecast\api\routes.py:722: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    validate_threshold(threshold)
+
+tests/api/test_api_security.py::TestBodySizeLimit::test_large_body_returns_413
+  /workspace\Downloads\CareCast\.venv\Lib\site-packages\starlette\middleware\base.py:197: StarletteDeprecationWarning: 'HTTP_413_REQUEST_ENTITY_TOO_LARGE' is deprecated. Use 'HTTP_413_CONTENT_TOO_LARGE' instead.
+    response = await self.dispatch_func(request, call_next)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+100 passed, 17 warnings in 10.89s

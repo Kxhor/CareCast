@@ -1,0 +1,60 @@
+# CareCast — Planning, Capacity & Policy Configuration (Phase 4)
+# Conforms to BACKEND_SCHEMA §10, TRD §8, and PRD §9.
+
+[capacity_defaults]
+# Neutral demo values — clearly labelled per Rule A-08 and PRD F8.1
+typical_weekly_admissions = 100.0
+alos_days = 4.5
+staffed_beds = 80.0
+patients_per_nurse = 4.0
+reference_weeks = 4
+is_simulated = true
+note = "DEMO PLACEHOLDER — not data"
+
+[bounds]
+# Input-sanity bounds per BACKEND_SCHEMA §8.8 / PRD F7.1
+surge_pct = [-50, 100]
+
+[actions]
+footer = "Final decisions rest with authorised staff."
+
+[actions.normal]
+items = [
+  "Maintain routine infection-control surveillance and standard bed tracking.",
+  "Review weekly admission trajectory and regional community transmission reports.",
+  "Verify baseline respiratory medication and personal protective equipment supplies."
+]
+
+[actions.watch]
+items = [
+  "Review projected discharge schedule and expedite weekend bed turnover.",
+  "Audit on-call clinical nurse roster and evaluate cross-department staffing support.",
+  "Assess step-down and intermediate-care bed flexibility for potential surge intake.",
+  "Monitor daily emergency department respiratory visit rates for inflection points."
+]
+
+[actions.elevated]
+items = [
+  "Convene clinical leadership and activate respiratory surge response protocol.",
+  "Evaluate temporary deferral of non-urgent elective surgical admissions.",
+  "Mobilize supplemental nursing and respiratory therapy shifts from staffing pool.",
+  "Establish daily coordination with regional transfer centers and hospital network."
+]
+
+[limitations]
+# L-01 through L-12 copied verbatim from PRD §9
+L-01 = "Data are U.S. national surveillance data, not Indian hospitals or any specific hospital."
+L-02 = "Data are aggregated at jurisdiction level, not hospital level."
+L-03 = "Scope is respiratory admissions (influenza, COVID-19, RSV) only."
+L-04 = "Forecast admissions are not occupancy or capacity; the alert is a planning signal."
+L-05 = "Data are weekly; no daily or intraday forecast."
+L-06 = "Reporting hospitals may not represent all hospitals; coverage varies by week."
+L-07 = "Reporting rules changed over time (mandatory -> voluntary -> CMS-required); RSV was voluntary until 1 Nov 2024."
+L-08 = "Thresholds and capacity inputs are user assumptions, not validated rules."
+L-09 = "Capacity illustration is SIMULATED and uses a steady-state approximation."
+L-10 = "Models are trained on few seasons; intervals are empirical, not guarantees."
+L-11 = "Forecasts are not clinically validated; not for diagnosis or treatment decisions."
+L-12 = "Explanations show model associations, not causes."
+
+[disclaimer]
+text = "Demonstration forecasts. Not clinically validated. Decision support only."
