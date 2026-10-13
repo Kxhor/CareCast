@@ -6,7 +6,7 @@
 | Version / status | 1.0 — **DRAFT FOR USER APPROVAL** |
 | Date | 10 Oct 2026 |
 | Depends on | [PRD](PRD.md) · [TRD](TRD.md) · [APP_FLOW](APP_FLOW.md) · [UI_UX_DESIGN](UI_UX_DESIGN.md) · [BACKEND_SCHEMA](BACKEND_SCHEMA.md) |
-| Executor | Antigravity agent, using prompts in [ANTIGRAVITY_PROMPTS](ANTIGRAVITY_PROMPTS.md) |
+| Executor | Automated development & validation workflow |
 
 ---
 

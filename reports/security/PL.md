@@ -3,7 +3,7 @@
 **Date:** 2026-10-14  
 **Auditor:** ML Auditor & Security Specialist (Rule G-0 Protocol)  
 **Scope:** Complete Codebase, Configuration, and Local Deployment Package  
-**Reference:** `ANTIGRAVITY_PROMPTS.md` §6.3, `TRD.md` §9.3 (PL-01 – PL-13), Master Security Prompt #2  
+**Reference:** `TRD.md` §9.3 (PL-01 – PL-13), Pre-Launch Verification Protocol  
 **Verdict:** **PASSED — ALL APPLICABLE CONTROLS SATISFIED**
 
 ---

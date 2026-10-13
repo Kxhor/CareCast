@@ -278,7 +278,6 @@ The architecture and engineering specifications are documented in the [`docs/`](
 - [**UI_UX_DESIGN.md**](docs/UI_UX_DESIGN.md): Design System — color tokens, WCAG AAA accessibility, and component standards.
 - [**BACKEND_SCHEMA.md**](docs/BACKEND_SCHEMA.md): Database Schemas & API Contracts — relational tables and JSON schemas.
 - [**IMPLEMENTATION_PLAN.md**](docs/IMPLEMENTATION_PLAN.md): Seven-Phase Engineering Plan — milestone checklists.
-- [**ANTIGRAVITY_PROMPTS.md**](docs/ANTIGRAVITY_PROMPTS.md): Engineering Prompts & Runbooks — operational guardrails.
 - [**FINAL_PROJECT_AUDIT.md**](docs/FINAL_PROJECT_AUDIT.md): Traceability & Final Audit — complete requirements verification.
 - [**DEPLOYMENT.md**](docs/DEPLOYMENT.md): Deployment Guide — containerization, production hardening, and reverse proxy setup.
 

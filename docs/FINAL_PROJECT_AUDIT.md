@@ -6,7 +6,7 @@
 | Template version | 1.0 — **FULLY POPULATED & VERIFIED (Phase 7)** |
 | Date created | 10 Oct 2026 |
 | Populated by / date | ML Auditor & Security Specialist / 14 Oct 2026 |
-| Depends on | [PRD](PRD.md) · [TRD](TRD.md) · [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) · [ANTIGRAVITY_PROMPTS](ANTIGRAVITY_PROMPTS.md) · `reports/` |
+| Depends on | [PRD](PRD.md) · [TRD](TRD.md) · [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) · [DEPLOYMENT](DEPLOYMENT.md) · `reports/` |
 
 ---
 

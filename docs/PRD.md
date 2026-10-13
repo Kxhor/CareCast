@@ -6,7 +6,7 @@
 | Version / status | 1.0 — **DRAFT FOR USER APPROVAL** |
 | Date | 10 Oct 2026 |
 | Project type | College project — decision-support prototype (not a clinical system) |
-| Companion docs | [TRD](TRD.md) · [APP_FLOW](APP_FLOW.md) · [UI_UX_DESIGN](UI_UX_DESIGN.md) · [BACKEND_SCHEMA](BACKEND_SCHEMA.md) · [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) · [ANTIGRAVITY_PROMPTS](ANTIGRAVITY_PROMPTS.md) · [FINAL_PROJECT_AUDIT](FINAL_PROJECT_AUDIT.md) |
+| Companion docs | [TRD](TRD.md) · [APP_FLOW](APP_FLOW.md) · [UI_UX_DESIGN](UI_UX_DESIGN.md) · [BACKEND_SCHEMA](BACKEND_SCHEMA.md) · [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) · [FINAL_PROJECT_AUDIT](FINAL_PROJECT_AUDIT.md) · [DEPLOYMENT](DEPLOYMENT.md) |
 
 ## 0. How to read this document
 
@@ -349,7 +349,7 @@ Authentication · user accounts · patient-level data · hospital-specific bed p
 |---|---|---|---|
 | R-01 | CSV headers differ from reports' claims | High / High | Mapping file + abort-on-mismatch + P2 data gate (OD-03). |
 | R-02 | Too few usable weeks/seasons for a disease | Med / High | Per-disease validation; hide failing disease (F12.2); keep baseline visible. |
-| R-03 | Model does not beat persistence | Med / Med | Report it honestly (F4.3); UI wording handles both outcomes; recovery prompt in ANTIGRAVITY_PROMPTS. |
+| R-03 | Model does not beat persistence | Med / Med | Report it honestly (F4.3); UI wording handles both outcomes; automated recovery runbook. |
 | R-04 | Reporting-regime breaks distort training | High / Med | EDA + explicit training start (OD-06); coverage feature; show L-07. |
 | R-05 | Overfitting with ~5 seasons | Med / Med | Simple models; walk-forward; untouched test block; permutation importance on validation. |
 | R-06 | Scope creep into ICU/staffing/inventory | High / High | Non-goals list; approval gates; "material scope change needs approval". |
